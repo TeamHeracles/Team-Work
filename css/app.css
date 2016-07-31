@@ -1,0 +1,21 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#game-wrap {
+  margin: 20px auto;
+  height: 600px;
+  background: #a99d86;
+}
+
+#forest {
+  /*width: 100%;*/
+  /*height: 100%;*/
+  background-color: rgba(142, 129, 104, .7);
+  background-image: url(../img/pattern.png);
+  background-repeat: repeat;
+}
