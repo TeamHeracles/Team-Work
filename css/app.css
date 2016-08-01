@@ -9,6 +9,7 @@ body, html {
 #game-wrap {
   margin: 20px auto;
   height: 600px;
+  width:1000px;
   background: #a99d86;
 }
 
