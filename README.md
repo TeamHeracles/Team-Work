@@ -15,4 +15,5 @@ Mouse should collect all the cheese in the forest, push it onto the spots near t
 
 * Points are given for each piece of cheese collected.
 * Total time is accounted, for collecting all the cheese.
+* Points are taken when piece of cheese is stuck between grass and trees.
 * Mouse moves are collected.
