@@ -1,55 +1,51 @@
-body{
+body, li:hover, #high:hover{
     background-image: url("../imgs/pattern_100_100.jpg");
     background-repeat: repeat;
 }
 
 #wrapper {
-    border: 3px solid black;
+    margin-top: 20px;
+    margin-left: 70px;
+    border: 3px solid gray;
     border-radius: 10px;
     width: 1200px;
     height: 600px;
-    margin-top: 20px;
-    margin-left: 70px;
     background-image: url("../imgs/mice.png");
     background-size: 1200px 600px;
-    font-family: sans-serif;    
-    
-}
-h1{
-    margin: 0px;
-    padding: 0px;
-    margin-left: 400px;
-    margin-top: 10px;
-    color: blue;
-}
-
-h2{
-    margin-left: 470px;
-    margin-top: 0px;
-    color: navy;
-}
-
-ul{
-    margin: 0px;
-    padding: 0px;
-    margin-left: 530px;
-    list-style: none;
-}
-li{
-    border: 1px solid black;
-    width: 130px;
-    height: 45px;
-    background: rgba(38, 42, 54, .9);
-    border-radius: 10px;
-    margin: 30px;
-    padding-top: 20px;
-   
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+    font-size: 1.2em;   
+    letter-spacing: 0.05em;
     text-align: center;
 }
 
-li:hover{
-    background-color: gray;
-    color: black;
+h1{
+    margin: 0px;
+    padding: 0px;
+    color: rgb(219, 79, 72);
+}
+
+/*h2{
+    margin: 0px 10px 0 0;
+    padding: 0px;
+    color: rgb(93, 59, 110)
+}*/
+
+ul{
+    margin: 70px auto;
+    padding: 0px;
+   
+    list-style: none;
+}
+
+li{
+    margin: 30px auto;
+    padding-top: 20px;
+    width: 130px;
+    height: 45px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: rgba(38, 42, 54, .5);
+    text-align: center;
 }
 
 a{
@@ -58,23 +54,30 @@ a{
     text-decoration: none;
     font-weight: bold;
     color: white;
+    
 }
 
 a:hover{
-    color: greenyellow;
+    color: rgb(251, 212, 173);
 }
 
 #high{
-    border: 1px solid black;
-    border-radius: 8px;
+    margin: 30px auto;
+    padding: 10px;
     width: 100px;
     height: 50px;
-    margin: 570px;
-    padding: 10px;
-    background-color: burlywood;
+    border-radius: 8px;
+    border: 1px solid black;
+    background-color: rgba(251, 212, 173, .9);
 }
+
 #footer{
-    margin-top: 150px;
-    margin-left: 500px;
+    margin-top: 50px;
+    text-align: center;
 	font-weight: bold;
+    color: rgb(93, 59, 110);
+}
+
+h1, h2, a, #footer{
+    text-shadow: 1px 1px 0 #000;
 }
