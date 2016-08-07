@@ -2,7 +2,7 @@
 
 ## Game Map
 
-![CheeseTerminator:](https://github.com/Horwits/Team-Work/blob/canvas/levels.jpg)
+![CheeseTerminator:](https://github.com/TeamHeracles/Team-Work/blob/canvas/levels.jpg)
 
 
 ## Game Description
