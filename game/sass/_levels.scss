@@ -1,0 +1,30 @@
+// Game Levels
+.menu-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95vh;
+  background-color: #454b5d; // rgba(255,255,255,.2);
+  color: rgba(255,255,255,.6);
+  text-align: center;
+
+  .main-header {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 50px;
+    @media only screen and (min-width: 1281px) {
+      font-size: 4.6vw;
+    }
+    @media only screen and (max-width: 768px) {
+      font-size: 40px;
+    }
+  }
+
+}
+
+.mice-img {
+  max-width: 100%;
+}

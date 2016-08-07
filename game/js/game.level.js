@@ -1,5 +1,7 @@
 Game.Level = {
 
+  init : function () {}
+
   // Player chooses a game level
   ,choose : function () {}
 

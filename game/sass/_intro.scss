@@ -2,14 +2,25 @@
 .intro-screen {
   text-align: center;
   h1 {
-    margin: 0;
-    padding: 0;
-    color: rgba(255,255,255,.85);
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgba(255,255,255,.65);
     font-size: 8vw;
+  }
+  .btn {
+    border: none;
+    border-radius: 0;
+    line-height: initial;
   }
 }
 
+
+#start-game {
+  &:hover {
+    @media only screen and (min-width: 1025px) {
+      -webkit-transform: scale(1.1, 1.1);
+      transform: scale(1.1, 1.1);
+    }
+  }
+}
 
 .hercules-img {
   width: auto;
@@ -18,13 +29,12 @@
 }
 .git-link {
   a {
-    color: #f8b429;
-    font-size: 2em;
-    text-decoration: none;
-    -webkit-transition: .3s all;
-    transition: .3s all;
+    color: rgba(255,255,255,.45);
+    font-size: 3vw;
+    &:hover {
+      @media only screen and (min-width: 1025px) {
+        color: $yellow;
+      }
+    }
   }
-}
-.git-link a:hover {
-  color: #e2361c;
 }

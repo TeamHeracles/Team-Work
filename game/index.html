@@ -5,26 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/ico" href="img/favicon.ico">
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/jquery-3.1.0.min.js"></script>
   </head>
 
   <body>
-    <div id="game-wrap">
-
-      <div class="intro-screen">
-        <div class="inner-table">
-          <div class="inner-cell">
-            <button id="start-game" type="button" name="button"><img class="hercules-img" src="vectors/hercules.svg" alt="Hercules Team" width="136" height="114"></button>
-            <h1>Heracles Team</h1>
-            <p class="git-link"><a href="https://github.com/TeamHeracles/Team-Work" target="_blank">https://github.com/TeamHeracles/Team-Work</a></p>
-          </div>
-        </div>
-      </div><!-- / end .intro-screen -->
-
+    <div id="game-wrap" class="active">
+      <!-- Include content, user conrol -->
     </div>
 
     <script src="js/main.js"></script>
     <script>
-      window.onload = App.init();
+      window.onload = Game.init();
     </script>
   </body>
 </html>

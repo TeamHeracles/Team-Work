@@ -1,1 +1,70 @@
-// Intro Screen
+// Buttons
+.btn {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 0 20px;
+  margin: 10px;
+  min-width: 200px;
+  line-height: 50px;
+  font-family: $impact;
+  font-size: 22px;
+  letter-spacing: 1px;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+.btn-white {
+  border-color: rgba(255,255,255,.6);
+  background: #fff;
+  color: rgba(255,255,255,.6);
+  color: #000;
+  @media only screen and (max-width: 1024px) {
+    color: #fff;
+  }
+  &:hover {
+    @media only screen and (min-width: 1025px) {
+      color: #fff;
+    }
+  }
+}
+.btn-blue {
+  border-color: #fff; // #066363;
+  background: #1e2433; // #363c4f;
+  color: #fff; // #066363;
+  &:hover {
+    @media only screen and (min-width: 1025px) {
+      border-color: #0bc0c0;
+      color: #0bc0c0;
+    }
+  }
+}
+
+#mode-easy {
+  @media only screen and (max-width: 1024px) {
+    background: #009a12;
+  }
+  &:hover {
+    @media only screen and (min-width: 1025px) {
+      background: #009a12;
+    }
+  }
+}
+#mode-expert {
+  @media only screen and (max-width: 1024px) {
+    background: #9a693c;
+  }
+  &:hover {
+    @media only screen and (min-width: 1025px) {
+      background: #9a693c;
+    }
+  }
+}
+#mode-hard {
+  @media only screen and (max-width: 1024px) {
+    background: #d12c13;
+  }
+  &:hover {
+    @media only screen and (min-width: 1025px) {
+      background: #d12c13;
+    }
+  }
+}

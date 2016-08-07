@@ -1,5 +1,10 @@
+$red: #e2361c;
+$yellow: #f8b429;
+$impact : Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
 @import 'reset.scss';
 @import 'general.scss';
 @import 'buttons.scss';
 @import 'intro.scss';
+@import 'levels.scss';
 @import 'canvas.scss';
