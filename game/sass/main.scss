@@ -1,0 +1,21 @@
+// Colors
+$red: #e2361c;
+$yellow: #f8b429;
+
+// Fonts
+$impact : Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+// MQ
+$min1025 : "only screen and (min-width: 1025px)";
+$min1281 : "only screen and (min-width: 1281px)";
+
+$max1024 : "only screen and (max-width: 768px)";
+$max768 : "only screen and (max-width: 1024px)";
+
+
+@import 'reset.scss';
+@import 'general.scss';
+@import 'buttons.scss';
+@import 'intro.scss';
+@import 'levels.scss';
+@import 'canvas.scss';

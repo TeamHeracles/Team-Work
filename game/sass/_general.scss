@@ -1,0 +1,100 @@
+html {
+  background: #333543;
+}
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  color: $yellow;
+}
+h2 {
+  color: rgba(255,255,255,.6);
+}
+
+h1, h2 {
+  margin: 0;
+  padding: 0;
+  font-family: $impact;
+}
+
+p {
+  margin: 0;
+  padding: 10px 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+  &:hover {
+    @media #{$min1025} {
+      color: $yellow;
+    }
+  }
+}
+
+.inner-table {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.inner-cell {
+  display: table-cell;
+  vertical-align: top;
+  vertical-align: middle;
+}
+
+#game-wrap {
+  visibility: hidden;
+  opacity: 0;
+  position: relative;
+  margin: 20px auto;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.mouse-btn {
+  &.active {
+    .mouse {
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+  }
+}
+.mouse {
+  margin: 0 20px;
+  width: 80px; // 7vw;
+  height: auto;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+  &:hover {
+    @media #{$min1025} {
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+  }
+}
+#yellow-mouse {
+  .st0{fill:#EFDF48;}
+  .st1{fill:#FFFA52;}
+}
+#green-mouse {
+  .st0{fill:#19BC3C;}
+  .st1{fill:#92E8AD;}
+}
+#blue-mouse {
+  .st0{fill:#8ACFF9;}
+  .st1{fill:#C2FFF9;}
+}

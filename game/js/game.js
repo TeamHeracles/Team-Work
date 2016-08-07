@@ -1,9 +1,14 @@
 var Game = {
-  mouse : '',
+  game_wrap : $('#game-wrap'),
+  mouse : {
+    id : ''
+  },
   level : '',
 
+
   init : function () {
-    Game.canvas.drawObject( level, params );
+    Game.game_wrap.load('intro.html');
+    Game.Controls.bind();
   }
 
 
