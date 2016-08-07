@@ -1,9 +1,10 @@
 var Game = {
   game_wrap : $('#game-wrap'),
+  forest : '',
   mouse : {
     id : ''
   },
-  level : '',
+  level : 'easy',
 
 
   init : function () {

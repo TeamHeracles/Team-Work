@@ -6,12 +6,17 @@ Game.Controls = {
       var btn = $(this),
           game_screen = $(btn).attr('data-nav');
 
-      Game.level = game_screen;
       Game.game_wrap.removeClass('active');
       Game.game_wrap.html('');
       setTimeout(function(){
         Game.Screen.load( game_screen );
       }, 500);
+    });
+
+    Game.game_wrap.on('click', '.btn-level', function(){
+      var btn = $(this),
+          level = $(btn).attr('data-level');
+      Game.level = level;
     });
 
     Game.game_wrap.on('click', '.mouse-btn', function() {

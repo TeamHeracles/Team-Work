@@ -5,10 +5,11 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 
 var Game = {
   game_wrap : $('#game-wrap'),
+  forest : '',
   mouse : {
     id : ''
   },
-  level : '',
+  level : 'easy',
 
 
   init : function () {
@@ -35,12 +36,17 @@ Game.Controls = {
       var btn = $(this),
           game_screen = $(btn).attr('data-nav');
 
-      Game.level = game_screen;
       Game.game_wrap.removeClass('active');
       Game.game_wrap.html('');
       setTimeout(function(){
         Game.Screen.load( game_screen );
       }, 500);
+    });
+
+    Game.game_wrap.on('click', '.btn-level', function(){
+      var btn = $(this),
+          level = $(btn).attr('data-level');
+      Game.level = level;
     });
 
     Game.game_wrap.on('click', '.mouse-btn', function() {
@@ -56,6 +62,38 @@ Game.Controls = {
   }
 
 
+
+}
+
+Game.Map = {
+  // p = point
+  // g = grass
+  // x = occupied space
+  // bl = blue tree
+  // gr = green tree
+  // na = naked tree
+  // or = orange tree
+  // 0 = empty space
+  // 1 = cheese
+  easy: [
+    ['p','p','p','g','g','g','p','p',0,0,'g','g',0,0,0,0,'p','p','bl','x','p','gr','x','p','p'],
+    [0,0,0,0,'p','g',0,0,0,0,0,0,0,0,0,0,'p','p','x','x','p','x','x',0,'p'],
+    ['g',0,0,0,0,0,1,1,1,0,'g',0,0,1,0,'bl','x','bl','x',0,0,1,0,0,0],
+    [0,'g',0,1,1,1,0,0,0,0,'g','g',0,1,0,'x','x','x','x',1,1,1,0,0,0],
+    [0,0,1,0,0,0,0,0,0,0,'g','g',0,1,1,0,0,1,0,0,0,0,'g','or','x'],
+    [0,0,1,0,'gr','x',0,0,0,0,'g','g',0,0,0,0,'na','na',0,'g',0,0,'g','x','x'],
+    ['p',0,'g','g','x','x','or','x',0,0,0,'g','g',0,0,0,'x','x',0,'gr','x',0,0,0,'g'],
+    ['p','g',0,0,0,0,'x','x','or','x',0,0,0,'g',0,0,0,0,0,'x','x','gr','x',0,'g'],
+    ['p',0,0,1,0,0,0,0,'x','x',0,0,0,0,0,0,0,0,0,0,'g','x','x',0,'g'],
+    ['g',0,0,0,'gr','x',0,0,0,0,0,1,0,0,'na',0,0,1,1,1,0,0,0,0,'g'],
+    ['bl','x',0,'g','x','x',1,0,0,0,1,1,1,0,'x',0,0,0,1,0,0,0,0,0,'g'],
+    ['x','x',0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,'g',0,0,0,'gr','x'],
+    [0,0,0,'g',1,0,0,0,0,0,1,0,0,'bl','x',0,'g',0,0,0,0,1,0,'x','x'],
+    [0,0,0,'g',0,0,'bl','x','p','p',0,0,0,'x','x',0,0,'g','g',0,0,0,0,'p','p'],
+    ['g','p','p','p',0,0,'x','x','g','g','g',0,0,'p','p','p','p','g','g','g','g','p','p','p','p']
+  ],
+  expert: {},
+  hard: {}
 
 }
 
@@ -93,7 +131,17 @@ Game.Screen = {
         Game.game_wrap.load('highscores.html');
         break;
       case 'game':
-        Game.game_wrap.load('game.html');
+        // Get forest map
+        Game.forest = Game.Map[Game.level];
+        console.log( Game.forest );
+        // TODO: Draw mouse at center position
+        // TODO: Draw trees and grasses
+        // TODO: Draw target points
+        // TODO: Draw cheese on separate canvas
+        Game.game_wrap.load('game.html', function(){
+          // TODO: Display game Start button
+          // TODO: Implement Timer and game Pause button
+        });
         break;
       default:
         Game.game_wrap.load('intro.html');

@@ -15,7 +15,17 @@ Game.Screen = {
         Game.game_wrap.load('highscores.html');
         break;
       case 'game':
-        Game.game_wrap.load('game.html');
+        // Get forest map
+        Game.forest = Game.Map[Game.level];
+        console.log( Game.forest );
+        // TODO: Draw mouse at center position
+        // TODO: Draw trees and grasses
+        // TODO: Draw target points
+        // TODO: Draw cheese on separate canvas
+        Game.game_wrap.load('game.html', function(){
+          // TODO: Display game Start button
+          // TODO: Implement Timer and game Pause button
+        });
         break;
       default:
         Game.game_wrap.load('intro.html');
