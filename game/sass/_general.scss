@@ -1,5 +1,5 @@
 html {
-  background: #454b5d;
+  background: #333543;
 }
 body, html {
   width: 100%;
@@ -49,6 +49,7 @@ a {
 .inner-cell {
   display: table-cell;
   vertical-align: top;
+  vertical-align: middle;
 }
 
 #game-wrap {
