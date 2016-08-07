@@ -5,9 +5,14 @@
 
 ## Game Map
 
-For each game level, a map is generated with items that should be collected form player's hero Mouse.
+For each game level, a map is generated with items that should be collected by player's Mouse.
 
 ![CheeseTerminator:](https://github.com/TeamHeracles/Team-Work/blob/master/CheeseTerminator.jpg)
+
+Mice are different types:
+- Green Mouse: basic mouse, can only pushes pieces of cheese to final locations
+- Yellow Mouse
+- Blue Mouse
 
 
 ## Game Description
