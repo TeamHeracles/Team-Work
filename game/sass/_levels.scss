@@ -15,10 +15,10 @@
 
   h1 {
     font-size: 50px;
-    @media only screen and (min-width: 1281px) {
+    @media #{$min1281} {
       font-size: 4.6vw;
     }
-    @media only screen and (max-width: 768px) {
+    @media #{$max768} {
       font-size: 40px;
     }
   }

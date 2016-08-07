@@ -29,7 +29,7 @@ a {
   transition: .3s all;
   text-decoration: none;
   &:hover {
-    @media only screen and (min-width: 1025px) {
+    @media #{$min1025} {
       color: $yellow;
     }
   }

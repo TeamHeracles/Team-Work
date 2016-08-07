@@ -15,7 +15,7 @@
 
 #start-game {
   &:hover {
-    @media only screen and (min-width: 1025px) {
+    @media #{$min1025} {
       -webkit-transform: scale(1.1, 1.1);
       transform: scale(1.1, 1.1);
     }
@@ -32,7 +32,7 @@
     color: rgba(255,255,255,.45);
     font-size: 3vw;
     &:hover {
-      @media only screen and (min-width: 1025px) {
+      @media #{$min1025} {
         color: $yellow;
       }
     }
