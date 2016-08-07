@@ -68,3 +68,13 @@
     }
   }
 }
+#game-start {
+  background: $red;
+  color: #fff;
+  &:hover {
+    @media #{$min1025} {
+      background: #fff;
+      color: #000;
+    }
+  }
+}

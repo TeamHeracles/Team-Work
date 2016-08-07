@@ -1,5 +1,5 @@
 // Game Levels
-.menu-holder {
+.content-holder {
   position: absolute;
   top: 0;
   left: 0;
@@ -8,10 +8,6 @@
   background-color: #454b5d; // rgba(255,255,255,.2);
   color: rgba(255,255,255,.6);
   text-align: center;
-
-  .main-header {
-    margin-bottom: 20px;
-  }
 
   h1 {
     font-size: 50px;
@@ -23,6 +19,20 @@
     }
   }
 
+}
+
+.main-header {
+  margin-bottom: 20px;
+
+  h2 {
+    margin: 60px auto 20px;
+    font-size: 38px;
+    letter-spacing: 1px;
+  }
+}
+
+.mice-holder {
+  margin: 20vh auto 10vh;
 }
 
 .mice-img {
