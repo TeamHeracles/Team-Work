@@ -3,6 +3,11 @@ body, li:hover, #high:hover{
     background-repeat: repeat;
 }
 
+header, section, article{
+    margin:0;
+    padding: 0;
+}
+
 #wrapper {
     margin-top: 20px;
     margin-left: 70px;
@@ -71,13 +76,13 @@ a:hover{
     background-color: rgba(251, 212, 173, .9);
 }
 
-#footer{
+footer{
     margin-top: 50px;
     text-align: center;
 	font-weight: bold;
     color: rgb(93, 59, 110);
 }
 
-h1, h2, a, #footer{
+h1, h2, a, footer{
     text-shadow: 1px 1px 0 #000;
 }
