@@ -1,18 +1,22 @@
 # CheeseTerminator
 
-![CheeseTerminator:](https://github.com/TeamHeracles/Team-Work/blob/canvas/levels.jpg)
+![GameLevels:](https://github.com/TeamHeracles/Team-Work/blob/canvas/images/levels.jpg)
 
 
 ## Game Map
 
 For each game level, a map is generated with items that should be collected by player's Mouse.
 
-![CheeseTerminator:](https://github.com/TeamHeracles/Team-Work/blob/master/CheeseTerminator.jpg)
+![CheeseTerminator:](https://github.com/TeamHeracles/Team-Work/blob/master/images/CheeseTerminator.jpg)
 
 Mice are different types:
-- Green Mouse: basic mouse, can only pushes pieces of cheese to final locations
+- Green Mouse: basic mouse, can only push pieces of cheese to final locations
 - Yellow Mouse
 - Blue Mouse
+
+![GreenMouse:](https://github.com/TeamHeracles/Team-Work/blob/canvas/images/mouse_green.jpg)
+![YellowMouse:](https://github.com/TeamHeracles/Team-Work/blob/canvas/images/mouse_yellow.jpg)
+![BlueMouse:](https://github.com/TeamHeracles/Team-Work/blob/canvas/images/mouse_blue.jpg)
 
 
 ## Game Description
