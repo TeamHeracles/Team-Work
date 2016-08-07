@@ -15,21 +15,24 @@ var Game = {
 
   ,bind : function () {
     Game.game_wrap.on('click', '.btn', function(){
-      var btn = $(this);
+      var btn = $(this),
+          game_screen = $(btn).attr('data-nav');
+
+      Game.level = game_screen;
       Game.game_wrap.removeClass('active');
       Game.game_wrap.html('');
       setTimeout(function(){
-        Game.loadScreen( $(btn).attr('data-nav') );
+        Game.loadScreen( game_screen );
       }, 500);
     });
   }
 
 
-  ,loadScreen : function (screen) {
-    console.log( screen );
+  ,loadScreen : function (game_screen) {
+    console.log( game_screen );
     Game.game_wrap.addClass('active');
 
-    switch (screen) {
+    switch (game_screen) {
       case 'levels':
         // console.log('levels');
         Game.game_wrap.load('levels.html');

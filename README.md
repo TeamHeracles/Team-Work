@@ -1,8 +1,13 @@
 # CheeseTerminator
 
+![CheeseTerminator:](https://github.com/TeamHeracles/Team-Work/blob/canvas/levels.jpg)
+
+
 ## Game Map
 
-![CheeseTerminator:](https://github.com/TeamHeracles/Team-Work/blob/canvas/levels.jpg)
+For each game level, a map is generated with items that should be collected form player's hero Mouse.
+
+![CheeseTerminator:](https://github.com/TeamHeracles/Team-Work/blob/master/CheeseTerminator.jpg)
 
 
 ## Game Description
@@ -11,7 +16,6 @@ Mouse should collect all the cheese in the forest, push it onto the spots near t
 * No movements through trees or grass allowed.
 * Mouse can only move one piece of cheese at a time.
 
-![CheeseTerminator:](https://github.com/TeamHeracles/Team-Work/blob/master/CheeseTerminator.jpg)
 
 
 ### Scoring
