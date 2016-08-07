@@ -1,0 +1,70 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%; // Prevent font scaling in landscape while allowing user zoom for iOS
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+footer, header, section, article, main, aside, nav {
+  display: block;
+}
+
+img {
+  border: none;
+  // max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  outline: 0;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: transparent;
+}
+
+input,
+button,
+select,
+textarea {
+  border: none;
+  outline: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: middle;
+}
+
+input {
+  -webkit-appearance: none; // iOS reset
+  border-radius: 0; // iOS reset
+}
+
+textarea {
+  overflow-y: auto;
+  resize: none;
+}
+
+button {
+  border: 0;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+hr {
+  border: none;
+}
+
+&:focus {
+  outline: none;
+}

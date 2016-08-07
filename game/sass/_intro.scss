@@ -1,0 +1,30 @@
+// Intro Screen
+.intro-screen {
+  text-align: center;
+  h1 {
+    margin: 0;
+    padding: 0;
+    color: rgba(255,255,255,.85);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 8vw;
+  }
+}
+
+
+.hercules-img {
+  width: auto;
+  height: 40vw;
+  max-height: 60vh;
+}
+.git-link {
+  a {
+    color: #f8b429;
+    font-size: 2em;
+    text-decoration: none;
+    -webkit-transition: .3s all;
+    transition: .3s all;
+  }
+}
+.git-link a:hover {
+  color: #e2361c;
+}
