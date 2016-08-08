@@ -7,13 +7,17 @@ var Game = {
   game_wrap : $('#game-wrap'),
   forest : '', // Forest map, according to game level
   mouse : {
-    id : ''
+    id : 'green-mouse',
+    coords : [440, 320]
   },
   level : 'easy',
 
 
   init : function () {
     Game.game_wrap.load('intro.html');
+    // Game.game_wrap.load('game.html', function(){
+    //   Game.Canvas.init();
+    // });
     Game.Controls.bind();
   }
 
@@ -43,6 +47,8 @@ Game.Canvas = {
 
     var ctx_cheese = Game.Canvas.forest.getContext('2d');
     Game.Canvas.setCheese( Game.level, ctx_cheese, game_width, game_height, Game.Canvas.step );
+
+    Game.Draw.Mouse( ctx_cheese, Game.mouse.coords );
 
     Game.Timer.init( Game.Canvas.timer );
   }
@@ -97,6 +103,9 @@ Game.Canvas = {
 
   }
 
+
+  ,setMouse : function () {}
+
 }
 
 Game.Controls = {
@@ -122,7 +131,7 @@ Game.Controls = {
 
     Game.game_wrap.on('click', '.mouse-btn', function() {
       var mouse = $(this),
-          mouse_id = $(mouse).attr('id');
+          mouse_id = $(mouse).find('.mouse').attr('id');
 
       $(mouse).addClass('active')
               .siblings().removeClass('active');
@@ -932,7 +941,7 @@ Game.Draw = {
   }
 
   ,OrangeTree : function ( ctx, x, y, size ) {
-    var stem = '#003d3d',
+    var stem = '#82776c',
         leaves = '#f15a24',
         head = '#f7931e';
 
@@ -1701,9 +1710,33 @@ Game.Draw = {
     ctx.restore();
   }
 
-  ,Mouse : function ( ctx, body_color, ears_color, coords ) {
+  ,Mouse : function ( ctx, coords ) {
     var x = coords[0],
         y = coords[1];
+
+    var body_color, ears_color;
+
+    if ( Game.mouse.id == 'green-mouse') {
+      body_color = '#92e8ad';
+      ears_color = '#19bc3c';
+    } else if ( Game.mouse.id == 'blue-mouse') {
+      body_color = '#c2fff9';
+      ears_color = '#8acff9';
+    } else if ( Game.mouse.id == 'yellow-mouse') {
+      body_color = '#fffa52';
+      ears_color = '#efdf48';
+    } else {
+      body_color = '#d6b9d2';
+      ears_color = '#ffffff';
+    }
+
+    // Pink
+    // body_color = '#d6b9d2';
+    // ears_color = '#ffffff';
+
+    // Orange
+    // body_color = '#fcbd4c';
+    // ears_color = '#c49d30';
 
     ctx.save();
     ctx.translate(x,y);

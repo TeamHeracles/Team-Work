@@ -21,7 +21,7 @@ Game.Controls = {
 
     Game.game_wrap.on('click', '.mouse-btn', function() {
       var mouse = $(this),
-          mouse_id = $(mouse).attr('id');
+          mouse_id = $(mouse).find('.mouse').attr('id');
 
       $(mouse).addClass('active')
               .siblings().removeClass('active');

@@ -22,6 +22,8 @@ Game.Canvas = {
     var ctx_cheese = Game.Canvas.forest.getContext('2d');
     Game.Canvas.setCheese( Game.level, ctx_cheese, game_width, game_height, Game.Canvas.step );
 
+    Game.Draw.Mouse( ctx_cheese, Game.mouse.coords );
+
     Game.Timer.init( Game.Canvas.timer );
   }
 
@@ -74,5 +76,8 @@ Game.Canvas = {
     }
 
   }
+
+
+  ,setMouse : function () {}
 
 }
