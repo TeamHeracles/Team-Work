@@ -1,6 +1,6 @@
 var Game = {
   game_wrap : $('#game-wrap'),
-  forest : '',
+  forest : '', // Forest map, according to game level
   mouse : {
     id : ''
   },

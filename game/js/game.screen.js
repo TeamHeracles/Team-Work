@@ -23,6 +23,7 @@ Game.Screen = {
         // TODO: Draw target points
         // TODO: Draw cheese on separate canvas
         Game.game_wrap.load('game.html', function(){
+          Game.Canvas.init();
           // TODO: Display game Start button
           // TODO: Implement Timer and game Pause button
         });
