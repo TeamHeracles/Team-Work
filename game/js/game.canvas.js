@@ -19,7 +19,7 @@ Game.Canvas = {
     var ctx_forest = Game.Canvas.forest.getContext('2d');
     Game.Canvas.setForest( Game.level, ctx_forest, game_width, game_height, Game.Canvas.step );
 
-    var ctx_cheese = Game.Canvas.forest.getContext('2d');
+    var ctx_cheese = Game.Canvas.cheese.getContext('2d');
     Game.Canvas.setCheese( Game.level, ctx_cheese, game_width, game_height, Game.Canvas.step );
 
     Game.Draw.Mouse( ctx_cheese, Game.mouse.coords );

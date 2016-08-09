@@ -5,7 +5,7 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 
 var Game = {
   game_wrap : $('#game-wrap'),
-  forest : '', // Forest map, according to game level
+  forest : 'easy', // Forest map, according to game level
   mouse : {
     id : 'green-mouse',
     coords : [440, 320]
@@ -45,7 +45,7 @@ Game.Canvas = {
     var ctx_forest = Game.Canvas.forest.getContext('2d');
     Game.Canvas.setForest( Game.level, ctx_forest, game_width, game_height, Game.Canvas.step );
 
-    var ctx_cheese = Game.Canvas.forest.getContext('2d');
+    var ctx_cheese = Game.Canvas.cheese.getContext('2d');
     Game.Canvas.setCheese( Game.level, ctx_cheese, game_width, game_height, Game.Canvas.step );
 
     Game.Draw.Mouse( ctx_cheese, Game.mouse.coords );
@@ -136,9 +136,64 @@ Game.Controls = {
       Game.mouse.id = mouse_id;
     });
 
+
     // TODO: Add event listeners for arrow buttons
+    $(window).on('keyup', Game.Controls.keyUp);
+    // $(window).on('keyup', function(e) {
+    //   if ( e.keyCode === 27 ) { App.Gallery.lightbox.removeClass('active'); return; } // Esc
+    // });
   }
 
+
+  ,keyUp : function ( e ) {
+    var ctx_cheese = Game.Canvas.cheese.getContext('2d'),
+        width = Game.Canvas.forest.width,
+        height = Game.Canvas.forest.height;
+
+    var x = Game.mouse.coords[0],
+        y = Game.mouse.coords[1],
+        dx = Game.Canvas.step, // 40
+        dy = Game.Canvas.step; // 40;
+
+    switch (e.keyCode) {
+      case 38:  // Up arrow was pressed
+        // console.log('up');
+        if (y - dy > 0) {
+          ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
+          Game.mouse.coords[1] -= dy;
+          // y -= dy;
+        }
+        Game.Draw.Mouse( ctx_cheese, [Game.mouse.coords[0], Game.mouse.coords[1]] );
+        break;
+      case 40:  // Down arrow was pressed
+        // console.log('down');
+        if (y + dy < height) {
+          ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
+          Game.mouse.coords[1] += dy;
+          // y += dy;
+        }
+        Game.Draw.Mouse( ctx_cheese, [Game.mouse.coords[0], Game.mouse.coords[1]] );
+        break;
+      case 37:  // Left arrow was pressed
+        // console.log('left');
+        if (x - dx > 0) {
+          ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
+          Game.mouse.coords[0] -= dx;
+          // x -= dx;
+        }
+        Game.Draw.Mouse( ctx_cheese, [Game.mouse.coords[0], Game.mouse.coords[1]] );
+        break;
+      case 39:  // Right arrow was pressed
+        // console.log('right');
+        if (x + dx < width) {
+          ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
+          Game.mouse.coords[0] += dx;
+          // x += dx;
+        }
+        Game.Draw.Mouse( ctx_cheese, [Game.mouse.coords[0], Game.mouse.coords[1]] );
+        break;
+      }
+  }
 
 
 }
