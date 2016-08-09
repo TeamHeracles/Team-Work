@@ -72,19 +72,22 @@ a {
       transform: scale(1.2);
     }
   }
+  &:hover {
+    .mouse {
+      @media #{$min1025} {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+      }
+    }
+  }
 }
 .mouse {
   margin: 0 20px;
-  width: 80px; // 7vw;
+  padding: 10px;
+  width: 90px; // 7vw;
   height: auto;
   -webkit-transition: .3s all;
   transition: .3s all;
-  &:hover {
-    @media #{$min1025} {
-      -webkit-transform: scale(1.2);
-      transform: scale(1.2);
-    }
-  }
 }
 #yellow-mouse {
   .st0{fill:#EFDF48;}
