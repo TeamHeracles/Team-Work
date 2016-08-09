@@ -14,9 +14,7 @@ Mice are different types:
 - Yellow Mouse
 - Blue Mouse
 
-![GreenMouse:](https://github.com/TeamHeracles/Team-Work/blob/master/images/mouse_green.png)
-![YellowMouse:](https://github.com/TeamHeracles/Team-Work/blob/master/images/mouse_yellow.png)
-![BlueMouse:](https://github.com/TeamHeracles/Team-Work/blob/master/images/mouse_blue.png)
+![Mice:](https://github.com/TeamHeracles/Team-Work/blob/master/images/mice.png)
 
 
 ## Game Description

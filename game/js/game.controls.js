@@ -39,6 +39,7 @@ Game.Controls = {
 
   ,keyUp : function ( e ) {
     Game.mouse.moves += 1;
+    // console.log(Game.Map[Game.level]);
     $('#moves').text(Game.mouse.moves);
 
     var ctx_cheese = Game.Canvas.cheese.getContext('2d'),
@@ -54,6 +55,10 @@ Game.Controls = {
       case 38:  // Up arrow was pressed
         // console.log('up');
         if (y - dy > 0) {
+          // if cheese up, check next cell
+          // if cell empty, clear and redraw cheese, clear and redraw mouse
+            // if neightbour cell occupied, cheese got stuck
+          // if occupied, no move
           ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
           Game.mouse.coords[1] -= dy;
           // y -= dy;
