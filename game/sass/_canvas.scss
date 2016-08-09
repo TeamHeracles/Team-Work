@@ -1,7 +1,15 @@
 // Game Map
 .game-content {
   position: relative;
-  // text-align: center;
+  margin: 0 auto;
+  max-width: 1366px;
+  height: 100%;
+
+  .back-btn {
+    position: absolute;
+    top: 545px;
+    right: 20px;
+  }
 }
 
 #forest {
