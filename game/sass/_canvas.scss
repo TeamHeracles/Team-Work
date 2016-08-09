@@ -37,3 +37,34 @@
   z-index: 1;
   border-radius: 100%;
 }
+
+.game-stats {
+  position: absolute;
+  top: 280px;
+  right: 20px;
+  min-width: 250px;
+  height: auto;
+}
+.stat-row {
+  margin: 0;
+  overflow: hidden;
+  .txt,
+  .quantity {
+    float: left;
+  }
+  .txt {
+    width: 55%;
+    color: rgba(255,255,255,.3);
+    font-family: $impact;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  .quantity {
+    padding-left: 10px;
+    width: 45%;
+    line-height: 0.8;
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+  }
+}

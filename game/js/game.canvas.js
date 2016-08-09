@@ -78,6 +78,4 @@ Game.Canvas = {
   }
 
 
-  ,setMouse : function () {}
-
 }

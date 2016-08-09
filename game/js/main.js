@@ -104,8 +104,6 @@ Game.Canvas = {
   }
 
 
-  ,setMouse : function () {}
-
 }
 
 Game.Controls = {
