@@ -8,7 +8,8 @@ var Game = {
   forest : 'easy', // Forest map, according to game level
   mouse : {
     id : 'green-mouse',
-    coords : [440, 320]
+    coords : [440, 320],
+    moves: 0
   },
   level : 'easy',
 
@@ -146,6 +147,9 @@ Game.Controls = {
 
 
   ,keyUp : function ( e ) {
+    Game.mouse.moves += 1;
+    $('#moves').text(Game.mouse.moves);
+
     var ctx_cheese = Game.Canvas.cheese.getContext('2d'),
         width = Game.Canvas.forest.width,
         height = Game.Canvas.forest.height;

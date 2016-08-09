@@ -38,6 +38,9 @@ Game.Controls = {
 
 
   ,keyUp : function ( e ) {
+    Game.mouse.moves += 1;
+    $('#moves').text(Game.mouse.moves);
+
     var ctx_cheese = Game.Canvas.cheese.getContext('2d'),
         width = Game.Canvas.forest.width,
         height = Game.Canvas.forest.height;

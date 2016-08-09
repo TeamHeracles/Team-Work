@@ -3,7 +3,8 @@ var Game = {
   forest : 'easy', // Forest map, according to game level
   mouse : {
     id : 'green-mouse',
-    coords : [440, 320]
+    coords : [440, 320],
+    moves: 0
   },
   level : 'easy',
 
