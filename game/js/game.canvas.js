@@ -22,7 +22,8 @@ Game.Canvas = {
     var ctx_cheese = Game.Canvas.cheese.getContext('2d');
     Game.Canvas.setCheese( Game.level, ctx_cheese, game_width, game_height, Game.Canvas.step );
 
-    Game.Draw.Mouse( ctx_cheese, Game.mouse.coords );
+    var ctx_mouse = Game.Canvas.mouse.getContext('2d');
+    Game.Draw.Mouse( ctx_mouse, Game.mouse.coords );
 
     Game.Timer.init( Game.Canvas.timer );
   }
