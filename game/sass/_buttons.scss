@@ -48,7 +48,7 @@
     }
   }
 }
-#mode-expert {
+#mode-hard {
   @media #{$max1024} {
     background: #9a693c;
   }
@@ -58,7 +58,7 @@
     }
   }
 }
-#mode-hard {
+#mode-expert {
   @media #{$max1024} {
     background: #d12c13;
   }

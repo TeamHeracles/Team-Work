@@ -30,13 +30,10 @@ Game.Controls = {
 
     // TODO: Add event listeners for arrow buttons
     $(window).on('keydown', Game.Controls.keyDown);
-    // $(window).on('keyup', function(e) {
-    //   if ( e.keyCode === 27 ) { App.Gallery.lightbox.removeClass('active'); return; } // Esc
-    // });
   }
 
+
   ,keyDown : function ( e ) {
-    Game.mouse.moves += 1;
     // console.log(Game.Map[Game.level]);
     $('#moves').text(Game.mouse.moves);
 
@@ -51,7 +48,7 @@ Game.Controls = {
 
     switch (e.keyCode) {
       case 38:  // Up arrow was pressed
-        // console.log('up');
+        Game.mouse.moves += 1;
         if (y - dy >= 0) {
           // if cheese up, check next cell
           // if cell empty, clear and redraw cheese, clear and redraw mouse
@@ -64,7 +61,7 @@ Game.Controls = {
         Game.Draw.Mouse( ctx_cheese, [Game.mouse.coords[0], Game.mouse.coords[1]] );
         break;
       case 40:  // Down arrow was pressed
-        // console.log('down');
+        Game.mouse.moves += 1;
         if (y + dy < height) {
           ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
           Game.mouse.coords[1] += dy;
@@ -73,7 +70,7 @@ Game.Controls = {
         Game.Draw.Mouse( ctx_cheese, [Game.mouse.coords[0], Game.mouse.coords[1]] );
         break;
       case 37:  // Left arrow was pressed
-        // console.log('left');
+        Game.mouse.moves += 1;
         if (x - dx >= 0) {
           ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
           Game.mouse.coords[0] -= dx;
@@ -82,7 +79,7 @@ Game.Controls = {
         Game.Draw.Mouse( ctx_cheese, [Game.mouse.coords[0], Game.mouse.coords[1]] );
         break;
       case 39:  // Right arrow was pressed
-        // console.log('right');
+        Game.mouse.moves += 1;
         if (x + dx < width) {
           ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
           Game.mouse.coords[0] += dx;
@@ -92,4 +89,5 @@ Game.Controls = {
         break;
       }
   }
+
 }

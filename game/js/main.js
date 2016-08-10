@@ -137,17 +137,12 @@ Game.Controls = {
       Game.mouse.id = mouse_id;
     });
 
-
     // TODO: Add event listeners for arrow buttons
-    $(window).on('keyup', Game.Controls.keyUp);
-    // $(window).on('keyup', function(e) {
-    //   if ( e.keyCode === 27 ) { App.Gallery.lightbox.removeClass('active'); return; } // Esc
-    // });
+    $(window).on('keydown', Game.Controls.keyDown);
   }
 
 
-  ,keyUp : function ( e ) {
-    Game.mouse.moves += 1;
+  ,keyDown : function ( e ) {
     // console.log(Game.Map[Game.level]);
     $('#moves').text(Game.mouse.moves);
 
@@ -162,8 +157,8 @@ Game.Controls = {
 
     switch (e.keyCode) {
       case 38:  // Up arrow was pressed
-        // console.log('up');
-        if (y - dy > 0) {
+        Game.mouse.moves += 1;
+        if (y - dy >= 0) {
           // if cheese up, check next cell
           // if cell empty, clear and redraw cheese, clear and redraw mouse
             // if neightbour cell occupied, cheese got stuck
@@ -175,7 +170,7 @@ Game.Controls = {
         Game.Draw.Mouse( ctx_cheese, [Game.mouse.coords[0], Game.mouse.coords[1]] );
         break;
       case 40:  // Down arrow was pressed
-        // console.log('down');
+        Game.mouse.moves += 1;
         if (y + dy < height) {
           ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
           Game.mouse.coords[1] += dy;
@@ -184,8 +179,8 @@ Game.Controls = {
         Game.Draw.Mouse( ctx_cheese, [Game.mouse.coords[0], Game.mouse.coords[1]] );
         break;
       case 37:  // Left arrow was pressed
-        // console.log('left');
-        if (x - dx > 0) {
+        Game.mouse.moves += 1;
+        if (x - dx >= 0) {
           ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
           Game.mouse.coords[0] -= dx;
           // x -= dx;
@@ -193,7 +188,7 @@ Game.Controls = {
         Game.Draw.Mouse( ctx_cheese, [Game.mouse.coords[0], Game.mouse.coords[1]] );
         break;
       case 39:  // Right arrow was pressed
-        // console.log('right');
+        Game.mouse.moves += 1;
         if (x + dx < width) {
           ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
           Game.mouse.coords[0] += dx;
@@ -203,7 +198,6 @@ Game.Controls = {
         break;
       }
   }
-
 
 }
 
@@ -1915,25 +1909,59 @@ Game.Map = {
   // 0 = empty space
   // 1 = cheese
   easy: [
-    ['p','p','p','g','g','g','p','p',0,0,'g','g',0,0,0,0,'p','p','bl','x','p','gr','x','p','p'],
+    ['p',0,0,'g',0,0,0,0,'g','p','g',0,0,'g','p','g',0,0,0,0,0,0,0,'na',0],
+    ['p',0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],
+    ['p',0,0,'gr',0,0,0,0,0,0,0,0,'or',0,0,0,0,0,0,0,'g','p',1,'p','g'],
+    [0,0,0,0,0,0,0,'na',0,0,0,0,0,0,0,0,0,'g','g',0,'g','p',1,'p','g'],
+    [0,0,0,0,0,0,0,0,0,0,0,'gr',0,0,0,0,1,'p','g',0,0,0,1,0,0],
+    [1,0,0,0,'gr',0,0,0,0,0,0,0,0,0,0,0,0,'g','g',0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    ['bl',0,0,0,0,0,'bl',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,'g',0,0,0,0,0,0,0],
+    [0,'g','g','g',0,0,0,0,0,0,0,0,0,0,0,0,0,'g','g',0,1,'g',0,0,0],
+    ['g',0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,'g','p',0,0,0,0,0,0],
+    ['g',1,'g','g','g',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'g',1,0,0],
+    [0,0,0,0,1,0,0,0,0,0,0,'gr',0,0,0,0,'p','g',0,0,'p','g',0,0,0],
+    [0,'p','p','g',1,0,0,0,0,0,1,0,0,0,'g','g','g','g',0,'g','g','g',0,0,0],
+    ['g','p','p','g',0,0,0,0,0,0,0,0,0,0,'g','p',0,1,0,1,'p','p',1,0,0],
+  ],
+
+  hard: [
+    ['p','p','p','g','g','g','p','p',0,0,'g','g',0,0,0,0,'p','p','bl','x','p','gr','x',0,'p'],
     [0,0,0,0,'p','g',0,0,0,0,0,0,0,0,0,0,'p','p','x','x','p','x','x',0,'p'],
     ['g',0,0,0,0,0,1,1,1,0,'g',0,0,1,0,'bl','x','bl','x',0,0,1,0,0,0],
-    [0,'g',0,1,1,1,0,0,0,0,'g','g',0,1,0,'x','x','x','x',1,1,1,0,0,0],
+    [0,'g',0,1,1,1,0,0,0,0,'g','g',0,1,0,'x','x','x','x',1,1,0,0,0,0],
     [0,0,1,0,0,0,0,0,0,0,'g','g',0,1,1,0,0,1,0,0,0,0,'g','or','x'],
     [0,0,1,0,'gr','x',0,0,0,0,'g','g',0,0,0,0,'na','na',0,'g',0,0,'g','x','x'],
     ['p',0,'g','g','x','x','or','x',0,0,0,'g','g',0,0,0,'x','x',0,'gr','x',0,0,0,'g'],
     ['p','g',0,0,0,0,'x','x','or','x',0,0,0,'g',0,0,0,0,0,'x','x','gr','x',0,'g'],
     ['p',0,0,1,0,0,0,0,'x','x',0,0,0,0,0,0,0,0,0,0,'g','x','x',0,'g'],
-    ['g',0,0,0,'gr','x',0,0,0,0,0,1,0,0,'na',0,0,1,1,1,0,0,0,0,'g'],
+    ['g',0,0,0,'gr','x',0,0,0,0,0,1,0,0,'na',0,0,1,0,1,0,0,0,0,'g'],
     ['bl','x',0,'g','x','x',1,0,0,0,1,1,1,0,'x',0,0,0,1,0,0,0,0,0,'g'],
     ['x','x',0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,'g',0,0,0,'gr','x'],
     [0,0,0,'g',1,0,0,0,0,0,1,0,0,'bl','x',0,'g',0,0,0,0,1,0,'x','x'],
-    [0,0,0,'g',0,0,'bl','x','p','p',0,0,0,'x','x',0,0,'g','g',0,0,0,0,'p','p'],
-    ['g','p','p','p',0,0,'x','x','g','g','g',0,0,'p','p','p','p','g','g','g','g','p','p','p','p']
-  ],
-  expert: [],
-  hard: []
+    [0,0,0,'g',0,0,'bl','x','p','p',0,0,0,'x','x',0,0,'g','g',0,0,0,0,0,'p'],
+    ['g','p','p','p',0,0,'x','x','g','g','g',0,0,'p','p','p','p','g','g','g','g','g','p','p','p']
+    ],
 
+  expert: [
+    ['p','g','g','g',0,0,0,0,0,0,'g','p','g','p','g',0,0,0,0,0,0,0,'g','p',0],
+    ['p','p','p',0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,'or',0,1,0,0,'p'],
+    [0,0,0,0,0,0,0,'na',0,0,0,0,0,0,'bl',0,0,0,0,0,0,0,1,0,'g'],
+    ['g','g',0,0,0,1,0,0,0,'g','g','g','g','g',0,0,0,0,0,0,0,0,1,0,'p'],
+    [0,0,'gr',0,0,0,0,0,'g','p','p','p','p','p','g',0,0,0,0,0,1,'gr',0,0,'p'],
+    [0,1,0,0,0,0,0,'g','p',1,1,1,1,1,'p','g',0,0,0,0,0,0,0,0,'p'],
+    [0,0,1,0,0,1,0,'g','p',1,0,0,0,1,'p','g',0,0,'or',0,0,'g',0,1,'p'],
+    [0,0,0,0,0,0,0,'g','p',1,0,1,0,1,'p','g',0,0,0,0,1,'g',0,1,0],
+    ['or',0,0,0,0,0,0,'g','p',1,0,0,0,1,'p','g',0,0,0,0,0,'g',0,0,1],
+    [0,0,1,0,0,0,0,'g','p',1,0,0,0,1,'p','g',0,0,0,0,0,'g',0,1,0],
+    ['p',0,1,0,0,0,0,0,'g','p',1,1,1,'p','g',0,0,0,0,0,0,0,'p','p','p'],
+    ['p',0,0,0,'na',0,0,0,0,'g',0,1,0,'g',0,0,0,0,0,0,0,0,'g','g','g'],
+    ['g',0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,'bl',0,0,0,'p','p','g'],
+    ['p',0,0,1,0,0,0,0,0,'gr',0,0,'gr',0,0,0,1,0,0,0,0,0,'g','g','g'],
+    [0,'p','g',0,0,0,0,0,0,0,0,'p',0,0,0,0,0,0,1,0,0,0,0,0,'p'],
+  ]
+  
 }
 
 Game.Score = {
