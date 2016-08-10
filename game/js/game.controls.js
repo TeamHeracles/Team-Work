@@ -28,14 +28,12 @@ Game.Controls = {
       Game.mouse.id = mouse_id;
     });
 
-
     // TODO: Add event listeners for arrow buttons
     $(window).on('keydown', Game.Controls.keyDown);
     // $(window).on('keyup', function(e) {
     //   if ( e.keyCode === 27 ) { App.Gallery.lightbox.removeClass('active'); return; } // Esc
     // });
   }
-
 
   ,keyDown : function ( e ) {
     Game.mouse.moves += 1;
@@ -54,7 +52,7 @@ Game.Controls = {
     switch (e.keyCode) {
       case 38:  // Up arrow was pressed
         // console.log('up');
-        if (y - dy > 0) {
+        if (y - dy >= 0) {
           // if cheese up, check next cell
           // if cell empty, clear and redraw cheese, clear and redraw mouse
             // if neightbour cell occupied, cheese got stuck
@@ -76,7 +74,7 @@ Game.Controls = {
         break;
       case 37:  // Left arrow was pressed
         // console.log('left');
-        if (x - dx > 0) {
+        if (x - dx >= 0) {
           ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
           Game.mouse.coords[0] -= dx;
           // x -= dx;
@@ -94,6 +92,4 @@ Game.Controls = {
         break;
       }
   }
-
-
 }
