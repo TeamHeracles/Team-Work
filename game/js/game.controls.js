@@ -143,7 +143,7 @@ Game.Controls = {
                         //removes scores if cheese leaves target
                         $currentScore = $("#score");
                         $remaining = $('#remaining');
-                        $collected = $('#collected')
+                        $collected = $('#collected');
                         $currentScore.text(+$currentScore.text() - 10);
                         $remaining.text(+$remaining.text() + 1);
                         $collected.text(+$collected.text() - 1);

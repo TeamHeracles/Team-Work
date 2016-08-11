@@ -17,9 +17,9 @@ Game.Canvas = {
         ctx_mouse = Game.Canvas.mouse.getContext('2d');
     Game.Draw.Mouse(ctx_mouse, Game.mouse.coords, "down");
     Game.Canvas.setForest( Game.level, ctx_forest, Game.Canvas.step );   
-    Game.Canvas.setCheese( Game.level, ctx_cheese, Game.Canvas.step );
-    
+    Game.Canvas.setCheese( Game.level, ctx_cheese, Game.Canvas.step );  
     Game.Timer.init( Game.Canvas.timer );
+    Game.Canvas.setTargets(Game.level);
   }
 
     ,positionsOfTarger: function () {
@@ -77,5 +77,16 @@ Game.Canvas = {
 
   }
 
+  ,setTargets : function (level) {
+    if (level === 'easy') {
+      $('#remaining').text(20);
+    }
+    else if (level === 'hard') {
+      $('#remaining').text(30);
+    }
+    else{
+      $('#remaining').text(40);
+    }
+  }
 
 }
