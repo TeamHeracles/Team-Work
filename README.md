@@ -37,7 +37,7 @@ Mouse should collect all the cheese in the forest, push it onto the spots near t
 * lidiq.petrova.9 (Лидия Петрова) - http://telerikacademy.com/Users/lidiq.petrova.9
 * sevdalina.pashova (Севдалина Пашова) - http://telerikacademy.com/Users/sevdalina.pashova
 * grafinya.gancheva (Grafinya Gancheva) - http://telerikacademy.com/Users/grafinya.gancheva
-* Horwits (Даниел Николов) - http://telerikacademy.com/Users/Horwits
+* Horwits (Даниел Николов) - http://telerikacademy.com/Users/DanielNikolov
 * kaloyanchost (Калоян Стефанов) - http://telerikacademy.com/Users/kaloyanchost
 * Enikov (Тодор Еников) - https://telerikacademy.com/Users/Enikov
 
