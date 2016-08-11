@@ -97,6 +97,7 @@ Game.Timer = {
             alert("Your time is up! Your score is " + $("#score").text());
             clearInterval(refreshId);
             $(".btn").click();
+            timerBreak = true;
             return;
         }
         if (min > 9) {

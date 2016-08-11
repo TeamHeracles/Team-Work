@@ -21,7 +21,10 @@ Game.Canvas = {
     Game.Canvas.setCheese( Game.level, ctx_cheese, Game.Canvas.step );  
     Game.Timer.init( Game.Canvas.timer );
     $('#remaining').text(Game.Canvas.targets.length);
-    
+    $('#collected').text(0);
+    $('#stuck').text(0);
+    $('#moves').text(0);
+    $('#score').text(0);
   }
 
 
