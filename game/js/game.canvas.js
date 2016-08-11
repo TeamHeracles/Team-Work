@@ -4,22 +4,28 @@ Game.Canvas = {
   timer  : '',
   mouse  : '',
   step   : 40,
-  targets : [] ,  
+  targets : [] ,
 
   init : function () {
-      // Page content should be loaded before canvas elements can be selected in DOM
+    // Page content should be loaded before canvas elements can be selected in DOM
     Game.Canvas.targets = [];
     Game.Canvas.forest = document.getElementById('forest');
     Game.Canvas.cheese = document.getElementById('cheese');
     Game.Canvas.timer = document.getElementById('timer');
     Game.Canvas.mouse = document.getElementById('mouse');
+
     var ctx_forest = Game.Canvas.forest.getContext('2d'),
         ctx_cheese = Game.Canvas.cheese.getContext('2d'),
         ctx_mouse = Game.Canvas.mouse.getContext('2d');
+
     Game.Draw.Mouse(ctx_mouse, Game.mouse.coords, "down");
-    Game.Canvas.setForest( Game.level, ctx_forest, Game.Canvas.step );   
-    Game.Canvas.setCheese( Game.level, ctx_cheese, Game.Canvas.step );  
+
+    Game.Canvas.setForest( Game.level, ctx_forest, Game.Canvas.step );
+
+    Game.Canvas.setCheese( Game.level, ctx_cheese, Game.Canvas.step );
+
     Game.Timer.init( Game.Canvas.timer );
+
     $('#remaining').text(Game.Canvas.targets.length);
     $('#collected').text(0);
     $('#stuck').text(0);
@@ -53,13 +59,12 @@ Game.Canvas = {
           Game.Draw.OrangeTree( ctx, col, row, step );
         }
         else if (cell == 'p') {
-            // Draw Target Point
-            //saves target position for calculating score
-            currentTargetPosition = { 'row': row, 'col': col };
-            Game.Canvas.targets.push(currentTargetPosition);
-            
-            Game.Draw.Target(ctx, col, row, step);
+          // Draw Target Point
+          //saves target position for calculating score
+          currentTargetPosition = { 'row': row, 'col': col };
+          Game.Canvas.targets.push(currentTargetPosition);
 
+          Game.Draw.Target(ctx, col, row, step);
         }
       }
     }
