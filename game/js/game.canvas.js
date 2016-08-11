@@ -4,7 +4,12 @@ Game.Canvas = {
   timer  : '',
   mouse  : '',
   step   : 40,
-  targets : [] ,
+  targets : [],
+  remaining : 0,
+  collected : 0,
+  stuck : 0,
+  moves : 0,
+  score : 0,
 
   init : function () {
     // Page content should be loaded before canvas elements can be selected in DOM
@@ -26,11 +31,13 @@ Game.Canvas = {
 
     Game.Timer.init( Game.Canvas.timer );
 
-    $('#remaining').text(Game.Canvas.targets.length);
-    $('#collected').text(0);
-    $('#stuck').text(0);
-    $('#moves').text(0);
-    $('#score').text(0);
+    Game.Canvas.remaining = Game.Canvas.targets.length;
+
+    $('#remaining').text(Game.Canvas.remaining);
+    $('#collected').text(Game.Canvas.collected);
+    $('#stuck').text(Game.Canvas.stuck);
+    $('#moves').text(Game.Canvas.moves);
+    $('#score').text(Game.Canvas.score);
   }
 
 

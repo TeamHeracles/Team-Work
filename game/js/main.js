@@ -56,7 +56,12 @@ Game.Canvas = {
   timer  : '',
   mouse  : '',
   step   : 40,
-  targets : [] ,
+  targets : [],
+  remaining : 0,
+  collected : 0,
+  stuck : 0,
+  moves : 0,
+  score : 0,
 
   init : function () {
     // Page content should be loaded before canvas elements can be selected in DOM
@@ -78,11 +83,13 @@ Game.Canvas = {
 
     Game.Timer.init( Game.Canvas.timer );
 
-    $('#remaining').text(Game.Canvas.targets.length);
-    $('#collected').text(0);
-    $('#stuck').text(0);
-    $('#moves').text(0);
-    $('#score').text(0);
+    Game.Canvas.remaining = Game.Canvas.targets.length;
+
+    $('#remaining').text(Game.Canvas.remaining);
+    $('#collected').text(Game.Canvas.collected);
+    $('#stuck').text(Game.Canvas.stuck);
+    $('#moves').text(Game.Canvas.moves);
+    $('#score').text(Game.Canvas.score);
   }
 
 
@@ -255,22 +262,24 @@ Game.Controls = {
 
         //adds score if cheese is on a target for the first time
         if (indexOfTargetNextNext != undefined && indexOfTargetNext == undefined){
-          $currentScore = $("#score");
-          $remaining = $('#remaining');
-          $collected = $('#collected');
-          $currentScore.text(+$currentScore.text() + 10);
-          $remaining.text(+$remaining.text() - 1);
-          $collected.text(+$collected.text() + 1);
+          Game.Canvas.score += 10;
+          Game.Canvas.remaining -= 1;
+          Game.Canvas.collected += 1;
+
+          $("#score").text(Game.Canvas.score);
+          $("#remaining").text(Game.Canvas.remaining);
+          $("#collected").text(Game.Canvas.collected);
         }
 
         if (indexOfTargetNextNext == undefined && indexOfTargetNext != undefined) {
           //removes scores if cheese leaves target
-          $currentScore = $("#score");
-          $remaining = $('#remaining');
-          $collected = $('#collected');
-          $currentScore.text(+$currentScore.text() - 10);
-          $remaining.text(+$remaining.text() + 1);
-          $collected.text(+$collected.text() - 1);
+          Game.Canvas.score -= 10;
+          Game.Canvas.remaining += 1;
+          Game.Canvas.collected -= 1;
+
+          $("#score").text(Game.Canvas.score);
+          $("#remaining").text(Game.Canvas.remaining);
+          $("#collected").text(Game.Canvas.collected);
         }
 
         //update cheese new location on map

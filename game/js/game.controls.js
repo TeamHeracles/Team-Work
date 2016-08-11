@@ -114,22 +114,24 @@ Game.Controls = {
 
         //adds score if cheese is on a target for the first time
         if (indexOfTargetNextNext != undefined && indexOfTargetNext == undefined){
-          $currentScore = $("#score");
-          $remaining = $('#remaining');
-          $collected = $('#collected');
-          $currentScore.text(+$currentScore.text() + 10);
-          $remaining.text(+$remaining.text() - 1);
-          $collected.text(+$collected.text() + 1);
+          Game.Canvas.score += 10;
+          Game.Canvas.remaining -= 1;
+          Game.Canvas.collected += 1;
+
+          $("#score").text(Game.Canvas.score);
+          $("#remaining").text(Game.Canvas.remaining);
+          $("#collected").text(Game.Canvas.collected);
         }
 
         if (indexOfTargetNextNext == undefined && indexOfTargetNext != undefined) {
           //removes scores if cheese leaves target
-          $currentScore = $("#score");
-          $remaining = $('#remaining');
-          $collected = $('#collected');
-          $currentScore.text(+$currentScore.text() - 10);
-          $remaining.text(+$remaining.text() + 1);
-          $collected.text(+$collected.text() - 1);
+          Game.Canvas.score -= 10;
+          Game.Canvas.remaining += 1;
+          Game.Canvas.collected -= 1;
+
+          $("#score").text(Game.Canvas.score);
+          $("#remaining").text(Game.Canvas.remaining);
+          $("#collected").text(Game.Canvas.collected);
         }
 
         //update cheese new location on map
