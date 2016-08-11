@@ -59,7 +59,7 @@ Game.Canvas = {
   targets : [],
   remaining : 0,
   collected : 0,
-  stuck : 0,
+  // stuck : 0,
   moves : 0,
   score : 0,
 
