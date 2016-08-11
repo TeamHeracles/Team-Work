@@ -54,12 +54,12 @@ Game.Controls = {
 
 
     // TODO: Add event listeners for arrow buttons
-    $(window).on('keyup', Game.Controls.keyUp);
+    $(window).on('keydown', Game.Controls.keyDown);
     // $(window).on('keyup', function(e) {
     //   if ( e.keyCode === 27 ) { App.Gallery.lightbox.removeClass('active'); return; } // Esc
     // });
   }
-  , keyUp: function (e) {
+  , keyDown: function (e) {
           var ctx_mouse = Game.Canvas.mouse.getContext('2d'),
               ctx_cheese = Game.Canvas.cheese.getContext('2d'),
               width = Game.Canvas.forest.width,
