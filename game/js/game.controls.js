@@ -62,7 +62,7 @@ Game.Controls = {
                           2: "left",
                           3: "up"
                         },
-        notAllowedPositions = ["g", "x", "bl", "na", "or", 1];
+        notAllowedPositions = ["g", "x", "bl", "na", "or", "gr",1];
     const dirDeltas = [{
                         "x": +Game.Canvas.step,
                         "y": 0
