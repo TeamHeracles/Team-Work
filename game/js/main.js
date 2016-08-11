@@ -297,7 +297,7 @@ Game.Controls = {
           Game.Canvas.remaining -= 1;
           Game.Canvas.collected += 1;
 
-          Game.Canvas.updateStats();
+          Game.Controls.updateStats();
         }
 
         if (indexOfTargetNextNext == undefined && indexOfTargetNext != undefined) {
@@ -306,7 +306,7 @@ Game.Controls = {
           Game.Canvas.remaining += 1;
           Game.Canvas.collected -= 1;
 
-          Game.Canvas.updateStats();
+          Game.Controls.updateStats();
         }
 
         //update cheese new location on map
