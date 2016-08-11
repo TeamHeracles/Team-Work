@@ -34,7 +34,7 @@ Game.Controls = {
       Game.game_wrap.html('');
       setTimeout(function () {
           if (btn[0].id == 'back-button')
-              Game.Timer.timerBreak = true;
+              Game.Timer.timerBreak = false;
         Game.Screen.load( game_screen );
       }, 500);
     });
