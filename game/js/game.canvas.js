@@ -8,10 +8,12 @@ Game.Canvas = {
 
   init : function () {
     // Page content should be loaded before canvas elements can be selected in DOM
+    
     Game.Canvas.forest = document.getElementById('forest');
     Game.Canvas.cheese = document.getElementById('cheese');
     Game.Canvas.timer = document.getElementById('timer');
     Game.Canvas.mouse = document.getElementById('mouse');
+    Game.Canvas.targets = [];
     var ctx_forest = Game.Canvas.forest.getContext('2d'),
         ctx_cheese = Game.Canvas.cheese.getContext('2d'),
         ctx_mouse = Game.Canvas.mouse.getContext('2d');
@@ -19,7 +21,7 @@ Game.Canvas = {
     Game.Canvas.setForest( Game.level, ctx_forest, Game.Canvas.step );   
     Game.Canvas.setCheese( Game.level, ctx_cheese, Game.Canvas.step );  
     Game.Timer.init( Game.Canvas.timer );
-    Game.Canvas.setTargets(Game.level);
+    $('#remaining').text(Game.Canvas.targets.length);
   }
 
     ,positionsOfTarger: function () {
@@ -75,18 +77,6 @@ Game.Canvas = {
       }
     }
 
-  }
-
-  ,setTargets : function (level) {
-    if (level === 'easy') {
-      $('#remaining').text(20);
-    }
-    else if (level === 'hard') {
-      $('#remaining').text(30);
-    }
-    else{
-      $('#remaining').text(40);
-    }
   }
 
 }
