@@ -17,7 +17,7 @@ Game.Screen = {
       case 'game':
         // Get forest map
         Game.forest = Game.Map[Game.level];
-        console.log( Game.forest );
+        //console.log( Game.forest );
         // TODO: Draw mouse at center position
         // TODO: Draw trees and grasses
         // TODO: Draw target points

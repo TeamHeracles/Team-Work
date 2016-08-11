@@ -1563,134 +1563,152 @@ Game.Draw = {
     ctx.restore();
   }
 
-  ,Mouse : function ( ctx, coords ) {
-    var x = coords[0],
-        y = coords[1];
+  , Mouse: function (ctx, coords, direction) {
+      var x = coords[0],
+          y = coords[1];
 
-    var body_color, ears_color;
+      var body_color, ears_color;
 
-    if ( Game.mouse.id == 'green-mouse') {
-      body_color = '#92e8ad';
-      ears_color = '#19bc3c';
-    } else if ( Game.mouse.id == 'blue-mouse') {
-      body_color = '#c2fff9';
-      ears_color = '#8acff9';
-    } else if ( Game.mouse.id == 'yellow-mouse') {
-      body_color = '#fffa52';
-      ears_color = '#efdf48';
-    } else {
-      body_color = '#d6b9d2';
-      ears_color = '#ffffff';
-    }
+      if (Game.mouse.id == 'green-mouse') {
+          body_color = '#92e8ad';
+          ears_color = '#19bc3c';
+      } else if (Game.mouse.id == 'blue-mouse') {
+          body_color = '#c2fff9';
+          ears_color = '#8acff9';
+      } else if (Game.mouse.id == 'yellow-mouse') {
+          body_color = '#fffa52';
+          ears_color = '#efdf48';
+      } else {
+          body_color = '#d6b9d2';
+          ears_color = '#ffffff';
+      }
 
-    // Pink
-    // body_color = '#d6b9d2';
-    // ears_color = '#ffffff';
+      // Pink
+      // body_color = '#d6b9d2';
+      // ears_color = '#ffffff';
 
-    // Orange
-    // body_color = '#fcbd4c';
-    // ears_color = '#c49d30';
+      // Orange
+      // body_color = '#fcbd4c';
+      // ears_color = '#c49d30';
 
-    ctx.save();
-    ctx.translate(x,y);
+      ctx.save();
+      Game.Draw.RotateMouse(x, y, direction, ctx);
 
-    ctx.fillStyle = body_color;
-    ctx.beginPath();
-    ctx.moveTo(0,0);
-    ctx.lineTo(40,0);
-    ctx.lineTo(40,40);
-    ctx.lineTo(0,40);
-    ctx.closePath();
-    ctx.clip();
-    ctx.translate(0,0);
-    ctx.translate(0,0);
-    ctx.scale(1,1);
-    ctx.translate(9.415,0);
-    ctx.strokeStyle = 'rgba(0,0,0,0)';
-    ctx.lineCap = 'butt';
-    ctx.lineJoin = 'miter';
-    ctx.miterLimit = 4;
-    ctx.save();
-    ctx.restore();
-    ctx.save();
-    ctx.save();
+      ctx.fillStyle = body_color;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(40, 0);
+      ctx.lineTo(40, 40);
+      ctx.lineTo(0, 40);
+      ctx.closePath();
+      ctx.clip();
+      ctx.translate(0, 0);
+      ctx.translate(0, 0);
+      ctx.scale(1, 1);
+      ctx.translate(9.415, 0);
+      ctx.strokeStyle = 'rgba(0,0,0,0)';
+      ctx.lineCap = 'butt';
+      ctx.lineJoin = 'miter';
+      ctx.miterLimit = 4;
+      ctx.save();
+      ctx.restore();
+      ctx.save();
+      ctx.save();
 
-    ctx.fillStyle = ears_color;
-    ctx.beginPath();
-    ctx.moveTo(10.176,0.215);
-    ctx.bezierCurveTo(8.873,1.6,8.053,3.29,8.961,5.134);
-    ctx.bezierCurveTo(9.993,7.231,12.211,8.816,10.545,11.234);
-    ctx.bezierCurveTo(10.032,11.978,11.243,12.675,11.75,11.939);
-    ctx.bezierCurveTo(12.81,10.402000000000001,12.857,8.898,11.977,7.272);
-    ctx.bezierCurveTo(10.751000000000001,5.007,8.88,3.628,11.164,1.2030000000000003);
-    ctx.bezierCurveTo(11.778,0.548,10.793,-0.44,10.176,0.215);
-    ctx.lineTo(10.176,0.215);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    ctx.restore();
-    ctx.save();
-    ctx.save();
+      ctx.fillStyle = ears_color;
+      ctx.beginPath();
+      ctx.moveTo(10.176, 0.215);
+      ctx.bezierCurveTo(8.873, 1.6, 8.053, 3.29, 8.961, 5.134);
+      ctx.bezierCurveTo(9.993, 7.231, 12.211, 8.816, 10.545, 11.234);
+      ctx.bezierCurveTo(10.032, 11.978, 11.243, 12.675, 11.75, 11.939);
+      ctx.bezierCurveTo(12.81, 10.402000000000001, 12.857, 8.898, 11.977, 7.272);
+      ctx.bezierCurveTo(10.751000000000001, 5.007, 8.88, 3.628, 11.164, 1.2030000000000003);
+      ctx.bezierCurveTo(11.778, 0.548, 10.793, -0.44, 10.176, 0.215);
+      ctx.lineTo(10.176, 0.215);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+      ctx.save();
+      ctx.save();
 
-    ctx.fillStyle = ears_color;
-    ctx.beginPath();
-    ctx.moveTo(5.699,29.068);
-    ctx.bezierCurveTo(5.699,26.336000000000002,3.484,24.121000000000002,0.7509999999999994,24.121000000000002);
-    ctx.bezierCurveTo(0.49399999999999944,24.121000000000002,0.24699999999999944,24.160000000000004,0.0009999999999994458,24.197000000000003);
-    ctx.bezierCurveTo(0.5729999999999994,27.051000000000002,1.9519999999999995,30.333000000000002,3.5219999999999994,33.167);
-    ctx.bezierCurveTo(4.834,32.275,5.699,30.773,5.699,29.068);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    ctx.restore();
-    ctx.save();
+      ctx.fillStyle = ears_color;
+      ctx.beginPath();
+      ctx.moveTo(5.699, 29.068);
+      ctx.bezierCurveTo(5.699, 26.336000000000002, 3.484, 24.121000000000002, 0.7509999999999994, 24.121000000000002);
+      ctx.bezierCurveTo(0.49399999999999944, 24.121000000000002, 0.24699999999999944, 24.160000000000004, 0.0009999999999994458, 24.197000000000003);
+      ctx.bezierCurveTo(0.5729999999999994, 27.051000000000002, 1.9519999999999995, 30.333000000000002, 3.5219999999999994, 33.167);
+      ctx.bezierCurveTo(4.834, 32.275, 5.699, 30.773, 5.699, 29.068);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+      ctx.save();
 
-    ctx.fillStyle = ears_color;
-    ctx.beginPath();
-    ctx.moveTo(20.344,24.122);
-    ctx.bezierCurveTo(17.613,24.122,15.398000000000001,26.337,15.398000000000001,29.067999999999998);
-    ctx.bezierCurveTo(15.398000000000001,30.796999999999997,16.290000000000003,32.315999999999995,17.633000000000003,33.199999999999996);
-    ctx.bezierCurveTo(19.209000000000003,30.360999999999997,20.594,27.069999999999997,21.17,24.205999999999996);
-    ctx.bezierCurveTo(20.901,24.16,20.627,24.122,20.344,24.122);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    ctx.restore();
-    ctx.restore();
-    ctx.save();
+      ctx.fillStyle = ears_color;
+      ctx.beginPath();
+      ctx.moveTo(20.344, 24.122);
+      ctx.bezierCurveTo(17.613, 24.122, 15.398000000000001, 26.337, 15.398000000000001, 29.067999999999998);
+      ctx.bezierCurveTo(15.398000000000001, 30.796999999999997, 16.290000000000003, 32.315999999999995, 17.633000000000003, 33.199999999999996);
+      ctx.bezierCurveTo(19.209000000000003, 30.360999999999997, 20.594, 27.069999999999997, 21.17, 24.205999999999996);
+      ctx.bezierCurveTo(20.901, 24.16, 20.627, 24.122, 20.344, 24.122);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+      ctx.restore();
+      ctx.save();
 
-    ctx.beginPath();
-    ctx.moveTo(10.586,9.607);
-    ctx.bezierCurveTo(5.264,9.607,0.9480000000000004,15,0.9480000000000004,21.652);
-    ctx.bezierCurveTo(0.9480000000000004,22.437,1.0540000000000005,23.298000000000002,1.2360000000000004,24.197000000000003);
-    ctx.bezierCurveTo(1.4820000000000004,24.159000000000002,1.7300000000000004,24.121000000000002,1.9870000000000005,24.121000000000002);
-    ctx.bezierCurveTo(4.718,24.121000000000002,6.9350000000000005,26.336000000000002,6.9350000000000005,29.068);
-    ctx.bezierCurveTo(6.9350000000000005,30.773000000000003,6.071000000000001,32.275,4.757000000000001,33.168);
-    ctx.bezierCurveTo(6.879,36.994,9.334,40,10.586,40);
-    ctx.bezierCurveTo(11.836,40,14.281,37.012,16.398,33.2);
-    ctx.bezierCurveTo(15.052,32.314,14.161999999999999,30.797000000000004,14.161999999999999,29.068000000000005);
-    ctx.bezierCurveTo(14.161999999999999,26.337000000000003,16.377,24.122000000000007,19.107,24.122000000000007);
-    ctx.bezierCurveTo(19.392,24.122000000000007,19.663999999999998,24.16100000000001,19.935,24.206000000000007);
-    ctx.bezierCurveTo(20.116999999999997,23.305000000000007,20.221999999999998,22.441000000000006,20.221999999999998,21.652000000000008);
-    ctx.bezierCurveTo(20.222,15,15.908,9.607,10.586,9.607);
-    ctx.closePath();
-    ctx.moveTo(8.43,35.441);
-    ctx.bezierCurveTo(7.914,35.441,7.4959999999999996,35.023,7.4959999999999996,34.506);
-    ctx.bezierCurveTo(7.4959999999999996,33.988,7.914,33.569,8.43,33.569);
-    ctx.bezierCurveTo(8.947,33.569,9.366,33.988,9.366,34.506);
-    ctx.bezierCurveTo(9.365,35.023,8.946,35.441,8.43,35.441);
-    ctx.closePath();
-    ctx.moveTo(12.509,35.441);
-    ctx.bezierCurveTo(11.993,35.441,11.573,35.023,11.573,34.506);
-    ctx.bezierCurveTo(11.573,33.988,11.993,33.569,12.509,33.569);
-    ctx.bezierCurveTo(13.027000000000001,33.569,13.445,33.988,13.445,34.506);
-    ctx.bezierCurveTo(13.445,35.023,13.027,35.441,12.509,35.441);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    ctx.restore();
-    ctx.restore();
-    ctx.restore();
+      ctx.beginPath();
+      ctx.moveTo(10.586, 9.607);
+      ctx.bezierCurveTo(5.264, 9.607, 0.9480000000000004, 15, 0.9480000000000004, 21.652);
+      ctx.bezierCurveTo(0.9480000000000004, 22.437, 1.0540000000000005, 23.298000000000002, 1.2360000000000004, 24.197000000000003);
+      ctx.bezierCurveTo(1.4820000000000004, 24.159000000000002, 1.7300000000000004, 24.121000000000002, 1.9870000000000005, 24.121000000000002);
+      ctx.bezierCurveTo(4.718, 24.121000000000002, 6.9350000000000005, 26.336000000000002, 6.9350000000000005, 29.068);
+      ctx.bezierCurveTo(6.9350000000000005, 30.773000000000003, 6.071000000000001, 32.275, 4.757000000000001, 33.168);
+      ctx.bezierCurveTo(6.879, 36.994, 9.334, 40, 10.586, 40);
+      ctx.bezierCurveTo(11.836, 40, 14.281, 37.012, 16.398, 33.2);
+      ctx.bezierCurveTo(15.052, 32.314, 14.161999999999999, 30.797000000000004, 14.161999999999999, 29.068000000000005);
+      ctx.bezierCurveTo(14.161999999999999, 26.337000000000003, 16.377, 24.122000000000007, 19.107, 24.122000000000007);
+      ctx.bezierCurveTo(19.392, 24.122000000000007, 19.663999999999998, 24.16100000000001, 19.935, 24.206000000000007);
+      ctx.bezierCurveTo(20.116999999999997, 23.305000000000007, 20.221999999999998, 22.441000000000006, 20.221999999999998, 21.652000000000008);
+      ctx.bezierCurveTo(20.222, 15, 15.908, 9.607, 10.586, 9.607);
+      ctx.closePath();
+      ctx.moveTo(8.43, 35.441);
+      ctx.bezierCurveTo(7.914, 35.441, 7.4959999999999996, 35.023, 7.4959999999999996, 34.506);
+      ctx.bezierCurveTo(7.4959999999999996, 33.988, 7.914, 33.569, 8.43, 33.569);
+      ctx.bezierCurveTo(8.947, 33.569, 9.366, 33.988, 9.366, 34.506);
+      ctx.bezierCurveTo(9.365, 35.023, 8.946, 35.441, 8.43, 35.441);
+      ctx.closePath();
+      ctx.moveTo(12.509, 35.441);
+      ctx.bezierCurveTo(11.993, 35.441, 11.573, 35.023, 11.573, 34.506);
+      ctx.bezierCurveTo(11.573, 33.988, 11.993, 33.569, 12.509, 33.569);
+      ctx.bezierCurveTo(13.027000000000001, 33.569, 13.445, 33.988, 13.445, 34.506);
+      ctx.bezierCurveTo(13.445, 35.023, 13.027, 35.441, 12.509, 35.441);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+      ctx.restore();
+      ctx.restore();
   }
+
+    , RotateMouse: function (x, y, direction, ctx) {
+        switch (direction) {
+            case "down": ctx.translate(x, y);
+                break;
+            case "left": ctx.translate(x + 40, y);
+                ctx.rotate(90 * Math.PI / 180);
+                break;
+            case "up": ctx.translate(x + 40, y + 40);
+                ctx.rotate(180 * Math.PI / 180);
+                break;
+            case "right":
+                ctx.translate(x, y + 40);
+                ctx.rotate(-90 * Math.PI / 180);
+                break;
+        }
+
+    }
 
 }

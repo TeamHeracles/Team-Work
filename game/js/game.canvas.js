@@ -4,7 +4,7 @@ Game.Canvas = {
   timer  : '',
   mouse  : '',
   step   : 40,
-
+  targets : [] ,  
 
   init : function () {
     // Page content should be loaded before canvas elements can be selected in DOM
@@ -12,26 +12,20 @@ Game.Canvas = {
     Game.Canvas.cheese = document.getElementById('cheese');
     Game.Canvas.timer = document.getElementById('timer');
     Game.Canvas.mouse = document.getElementById('mouse');
-
-    var game_width = Game.Canvas.forest.width,
-        game_height = Game.Canvas.forest.height;
-
-    var ctx_forest = Game.Canvas.forest.getContext('2d');
-    Game.Canvas.setForest( Game.level, ctx_forest, game_width, game_height, Game.Canvas.step );
-
-    var ctx_cheese = Game.Canvas.cheese.getContext('2d');
-    Game.Canvas.setCheese( Game.level, ctx_cheese, game_width, game_height, Game.Canvas.step );
-
-    var ctx_mouse = Game.Canvas.mouse.getContext('2d');
-    Game.Draw.Mouse( ctx_mouse, Game.mouse.coords );
-
+    var ctx_forest = Game.Canvas.forest.getContext('2d'),
+        ctx_cheese = Game.Canvas.cheese.getContext('2d'),
+        ctx_mouse = Game.Canvas.mouse.getContext('2d');
+    Game.Draw.Mouse(ctx_mouse, Game.mouse.coords, "down");
+    Game.Canvas.setForest( Game.level, ctx_forest, Game.Canvas.step );   
+    Game.Canvas.setCheese( Game.level, ctx_cheese, Game.Canvas.step );
+    
     Game.Timer.init( Game.Canvas.timer );
   }
 
-
-  ,setForest : function ( level, ctx, width, height, step ) {
+    ,positionsOfTarger: function () {
+    }
+  ,setForest : function ( level, ctx, step ) {
     var map = Game.Map[level];
-
     for (var row = 0; row < map.length; row++) {
       for (var col = 0; col < map[row].length; col++) {
         var cell = map[row][col];
@@ -55,8 +49,13 @@ Game.Canvas = {
           Game.Draw.OrangeTree( ctx, col, row, step );
         }
         else if (cell == 'p') {
-          // Draw Target Point
-          Game.Draw.Target( ctx, col, row, step );
+            // Draw Target Point
+            //saves target position for calculating score
+            currentTargetPosition = { 'row': row, 'col': col };
+            Game.Canvas.targets.push(currentTargetPosition);
+            
+            Game.Draw.Target(ctx, col, row, step);
+
         }
       }
     }
@@ -64,7 +63,7 @@ Game.Canvas = {
   }
 
 
-  ,setCheese : function ( level, ctx, width, height, step ) {
+  ,setCheese : function ( level, ctx,  step ) {
     var map = Game.Map[level];
 
     for (var row = 0; row < map.length; row++) {

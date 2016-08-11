@@ -7,7 +7,7 @@ var Game = {
     moves: 0
   },
   level : 'easy',
-
+  targets : [],  
 
   init : function () {
     Game.game_wrap.load('intro.html');
