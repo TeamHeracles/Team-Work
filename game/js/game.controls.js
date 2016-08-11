@@ -110,7 +110,7 @@ Game.Controls = {
         console.log("I'm here!!!!");
 
         function findTargetOfNextNext(target){
-          return target.row == (mouseNextY + dirDeltas[dir].y) / Game.Canvas.step && target.col == (mouseNextX + dirDeltas[dir].x) / Game.Canvas.step
+          return target.row == (mouseNextY + dirDeltas[dir].y) / Game.Canvas.step && target.col == (mouseNextX + dirDeltas[dir].x) / Game.Canvas.step;
         }
 
         function findTagetOfNext(target){
@@ -119,7 +119,7 @@ Game.Controls = {
         }
 
         var indexOfTargetNextNext = Game.Canvas.targets.find(findTargetOfNextNext);
-        var indexOfTargetNext = Game.Canvas.targets.find(findTagetOfNext)
+        var indexOfTargetNext = Game.Canvas.targets.find(findTagetOfNext);
 
         //adds score if cheese is on a target for the first time
         if (indexOfTargetNextNext != undefined && indexOfTargetNext == undefined){
@@ -148,7 +148,7 @@ Game.Controls = {
         map[(mouseNextY + dirDeltas[dir].y) / Game.Canvas.step][(mouseNextX + dirDeltas[dir].x) / Game.Canvas.step] = 1;
         ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
         Game.Canvas.setCheese(Game.level, ctx_cheese, Game.Canvas.step);
-        //checks if it is on point and gives point to score
+        //checks if it is on point and add points to score
       }
 
       //counts the move
@@ -157,10 +157,17 @@ Game.Controls = {
 
       if (Game.Canvas.remaining == 0) {
         Game.Timer.timerBreak = false;
-        alert('You made it!');
+        var message = "You made it! Game over! Your score is " + Game.Canvas.score;
+        Game.Controls.showPopup( message );
       }
     }
 
+  }
+
+
+  ,showPopup : function( message ) {
+    $('#popup .message').text( message );
+    $('#popup').removeClass('hidden');
   }
 
 

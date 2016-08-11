@@ -1,12 +1,12 @@
 Game.Timer = {
-  timerBreak: false,
+  timerBreak : false,
 
   init : function ( timer ) {
     var ctx = timer.getContext('2d');
     var cWidth = timer.width;
     var cHeight = timer.height;
     var breakTimerFromOutside = false;
-    var countTo = 50; // 300
+    var countTo = 100; // 300
 
     var min = Math.floor(countTo / 60);
     var sec = countTo - (min * 60);
@@ -94,9 +94,8 @@ Game.Timer = {
         return;
       }
       if (min == 0 && sec == 0) {
-        var message = "Your time is up! Your score is " + $("#score").text();
-        $('#popup .message').text( message );
-        $('#popup').removeClass('hidden');
+        var message = "Your time is up! Your score is " + Game.Canvas.score;
+        Game.Controls.showPopup( message );
 
         clearInterval(refreshId);
         timerBreak = true;

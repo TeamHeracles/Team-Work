@@ -11,6 +11,7 @@ Game.Canvas = {
   moves : 0,
   score : 0,
 
+
   init : function () {
     Game.Canvas.remaining = 0;
     Game.Canvas.collected = 0;
