@@ -6,7 +6,7 @@ Game.Timer = {
     var cWidth = timer.width;
     var cHeight = timer.height;
     var breakTimerFromOutside = false;
-    var countTo = 300;
+    var countTo = 100;
 
     var min = Math.floor(countTo / 60);
     var sec = countTo - (min * 60);

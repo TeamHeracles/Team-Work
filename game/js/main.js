@@ -149,15 +149,21 @@ Game.Canvas = {
 Game.Controls = {
   // Add all event listeners
   bind : function () {
+    $(window).on('load', function(){
+      Game.Timer.timerBreak = false;
+    });
+
     Game.game_wrap.on('click', '.btn', function(){
       var btn = $(this),
           game_screen = $(btn).attr('data-nav');
 
       Game.game_wrap.removeClass('active');
       Game.game_wrap.html('');
+
       setTimeout(function () {
-          if (btn[0].id == 'back-button')
-              Game.Timer.timerBreak = false;
+          if (btn[0].id == 'back-button') {
+            Game.Timer.timerBreak = false;
+          }
         Game.Screen.load( game_screen );
       }, 500);
     });
@@ -293,6 +299,11 @@ Game.Controls = {
       //counts the move
       Game.mouse.moves += 1;
       $('#moves').text(Game.mouse.moves);
+
+      if (Game.Canvas.remaining == 0) {
+        Game.Timer.timerBreak = false;
+        alert('You made it!');
+      }
     }
 
   }
@@ -2177,7 +2188,7 @@ Game.Timer = {
     var cWidth = timer.width;
     var cHeight = timer.height;
     var breakTimerFromOutside = false;
-    var countTo = 300;
+    var countTo = 100;
 
     var min = Math.floor(countTo / 60);
     var sec = countTo - (min * 60);
