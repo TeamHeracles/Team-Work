@@ -6,7 +6,7 @@ Game.Timer = {
     var cWidth = timer.width;
     var cHeight = timer.height;
     var breakTimerFromOutside = false;
-    var countTo = 100;
+    var countTo = 50; // 300
 
     var min = Math.floor(countTo / 60);
     var sec = countTo - (min * 60);
@@ -94,9 +94,11 @@ Game.Timer = {
         return;
       }
       if (min == 0 && sec == 0) {
-        alert("Your time is up! Your score is " + $("#score").text());
+        var message = "Your time is up! Your score is " + $("#score").text();
+        $('#popup .message').text( message );
+        $('#popup').removeClass('hidden');
+
         clearInterval(refreshId);
-        $(".btn").click();
         timerBreak = true;
         return;
       }

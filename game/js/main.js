@@ -46,12 +46,6 @@ var Game = {
     //   Game.Canvas.init();
     // });
     Game.Controls.bind();
-
-    Game.Canvas.remaining = 0;
-    Game.Canvas.collected = 0;
-    Game.Canvas.stuck = 0;
-    Game.Canvas.score = 0;
-    Game.Canvas.moves = 0;
   }
 
 }
@@ -70,6 +64,12 @@ Game.Canvas = {
   score : 0,
 
   init : function () {
+    Game.Canvas.remaining = 0;
+    Game.Canvas.collected = 0;
+    Game.Canvas.stuck = 0;
+    Game.Canvas.score = 0;
+    Game.Canvas.moves = 0;
+
     // Page content should be loaded before canvas elements can be selected in DOM
     Game.Canvas.targets = [];
     Game.Canvas.forest = document.getElementById('forest');
@@ -167,9 +167,6 @@ Game.Controls = {
       Game.game_wrap.html('');
 
       setTimeout(function () {
-          if (btn[0].id == 'back-button') {
-            Game.Timer.timerBreak = false;
-          }
         Game.Screen.load( game_screen );
       }, 500);
     });
@@ -189,8 +186,14 @@ Game.Controls = {
       Game.mouse.id = mouse_id;
     });
 
-    // TODO: Add event listeners for arrow buttons
-    $(window).on('keydown', Game.Controls.keyDown);
+    // Add event listeners for arrow buttons
+    $(window).on('keydown', function( e ){
+      var forest = $('#forest');
+      if ( !forest || forest.length < 1 ) {
+        return;
+      }
+      Game.Controls.keyDown( e );
+    });
   }
 
 
@@ -2194,7 +2197,7 @@ Game.Timer = {
     var cWidth = timer.width;
     var cHeight = timer.height;
     var breakTimerFromOutside = false;
-    var countTo = 100;
+    var countTo = 50; // 300
 
     var min = Math.floor(countTo / 60);
     var sec = countTo - (min * 60);
@@ -2282,9 +2285,11 @@ Game.Timer = {
         return;
       }
       if (min == 0 && sec == 0) {
-        alert("Your time is up! Your score is " + $("#score").text());
+        var message = "Your time is up! Your score is " + $("#score").text();
+        $('#popup .message').text( message );
+        $('#popup').removeClass('hidden');
+
         clearInterval(refreshId);
-        $(".btn").click();
         timerBreak = true;
         return;
       }

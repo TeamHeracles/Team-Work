@@ -41,12 +41,6 @@ var Game = {
     //   Game.Canvas.init();
     // });
     Game.Controls.bind();
-
-    Game.Canvas.remaining = 0;
-    Game.Canvas.collected = 0;
-    Game.Canvas.stuck = 0;
-    Game.Canvas.score = 0;
-    Game.Canvas.moves = 0;
   }
 
 }

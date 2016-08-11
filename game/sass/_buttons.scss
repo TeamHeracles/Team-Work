@@ -27,13 +27,37 @@
   }
 }
 .btn-blue {
-  border-color: #fff; // #066363;
-  background: #1e2433; // #363c4f;
-  color: #fff; // #066363;
+  border-color: #fff;
+  background: #1e2433;
+  color: #fff;
   &:hover {
     @media #{$min1025} {
       border-color: #0bc0c0;
       color: #0bc0c0;
+    }
+  }
+}
+.btn-blue-light {
+  border-color: #fff;
+  background: #066363;
+  color: #fff;
+  &:hover {
+    @media #{$min1025} {
+      border-color: #066363;
+      background: #fff;
+      color: #066363;
+    }
+  }
+}
+.btn-blue-dark {
+  border-color: #fff;
+  background: #1e2433;
+  color: #fff;
+  &:hover {
+    @media #{$min1025} {
+      border-color: #1e2433;
+      background: #fff;
+      color: #1e2433;
     }
   }
 }

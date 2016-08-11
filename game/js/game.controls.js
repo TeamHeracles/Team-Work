@@ -13,9 +13,6 @@ Game.Controls = {
       Game.game_wrap.html('');
 
       setTimeout(function () {
-          if (btn[0].id == 'back-button') {
-            Game.Timer.timerBreak = false;
-          }
         Game.Screen.load( game_screen );
       }, 500);
     });
@@ -35,8 +32,14 @@ Game.Controls = {
       Game.mouse.id = mouse_id;
     });
 
-    // TODO: Add event listeners for arrow buttons
-    $(window).on('keydown', Game.Controls.keyDown);
+    // Add event listeners for arrow buttons
+    $(window).on('keydown', function( e ){
+      var forest = $('#forest');
+      if ( !forest || forest.length < 1 ) {
+        return;
+      }
+      Game.Controls.keyDown( e );
+    });
   }
 
 

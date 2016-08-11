@@ -12,6 +12,12 @@ Game.Canvas = {
   score : 0,
 
   init : function () {
+    Game.Canvas.remaining = 0;
+    Game.Canvas.collected = 0;
+    Game.Canvas.stuck = 0;
+    Game.Canvas.score = 0;
+    Game.Canvas.moves = 0;
+
     // Page content should be loaded before canvas elements can be selected in DOM
     Game.Canvas.targets = [];
     Game.Canvas.forest = document.getElementById('forest');
