@@ -29,10 +29,12 @@ Game.Controls = {
     Game.game_wrap.on('click', '.btn', function(){
       var btn = $(this),
           game_screen = $(btn).attr('data-nav');
-
+            
       Game.game_wrap.removeClass('active');
       Game.game_wrap.html('');
-      setTimeout(function(){
+      setTimeout(function () {
+          if (btn[0].id == 'back-button')
+              Game.Timer.timerBreak = true;
         Game.Screen.load( game_screen );
       }, 500);
     });
@@ -104,9 +106,10 @@ Game.Controls = {
             dir = keyCodeToDirs[e.keyCode];
             var mouseNextX = x + dirDeltas[dir].x;
             var mouseNextY = y + dirDeltas[dir].y;
+            if (mouseNextY < 0 || mouseNextY >= height || mouseNextX < 0 || mouseNextX >= width)
+                return;
             var mapNextPosition = map[mouseNextY / Game.Canvas.step][mouseNextX / Game.Canvas.step];
-            if (mouseNextY >= 0 && mouseNextY < height && mouseNextX >= 0 && mouseNextX < width &&
-                (notAllowedPositions.indexOf(mapNextPosition) == -1 ||
+            if ((notAllowedPositions.indexOf(mapNextPosition) == -1 ||
                 (mapNextPosition == 1 && 
                 (map[(mouseNextY + dirDeltas[dir].y) / Game.Canvas.step][(mouseNextX + dirDeltas[dir].x) / Game.Canvas.step]) == 0 || 
                  map[(mouseNextY + dirDeltas[dir].y) / Game.Canvas.step][(mouseNextX + dirDeltas[dir].x) / Game.Canvas.step] == 'p'))){
@@ -134,7 +137,7 @@ Game.Controls = {
                     if(indexOfTargetNextNext != undefined && indexOfTargetNext == undefined){
                         $currentScore = $("#score");
                         $remaining = $('#remaining');
-                        $collected = $('#collected')
+                        $collected = $('#collected');
                         $currentScore.text(+$currentScore.text() + 10);
                         $remaining.text(+$remaining.text() - 1);
                         $collected.text(+$collected.text() + 1);                      
