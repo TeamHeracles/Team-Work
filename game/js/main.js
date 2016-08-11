@@ -187,6 +187,21 @@ Game.Controls = {
       Game.mouse.id = mouse_id;
     });
 
+
+    $('#home-button, #load-button').on('click', function(){
+      var btn = $(this),
+          game_screen = $(btn).attr('data-nav');
+
+      Game.game_wrap.removeClass('active');
+      Game.game_wrap.html('');
+      $(this).parents('#popup').addClass('hidden');
+
+      setTimeout(function () {
+        Game.Screen.load( game_screen );
+      }, 500);
+    });
+
+
     // Add event listeners for arrow buttons
     $(window).on('keydown', function( e ){
       var forest = $('#forest');
@@ -282,9 +297,7 @@ Game.Controls = {
           Game.Canvas.remaining -= 1;
           Game.Canvas.collected += 1;
 
-          $("#score").text(Game.Canvas.score);
-          $("#remaining").text(Game.Canvas.remaining);
-          $("#collected").text(Game.Canvas.collected);
+          Game.Canvas.updateStats();
         }
 
         if (indexOfTargetNextNext == undefined && indexOfTargetNext != undefined) {
@@ -293,9 +306,7 @@ Game.Controls = {
           Game.Canvas.remaining += 1;
           Game.Canvas.collected -= 1;
 
-          $("#score").text(Game.Canvas.score);
-          $("#remaining").text(Game.Canvas.remaining);
-          $("#collected").text(Game.Canvas.collected);
+          Game.Canvas.updateStats();
         }
 
         //update cheese new location on map
@@ -323,6 +334,13 @@ Game.Controls = {
   ,showPopup : function( message ) {
     $('#popup .message').text( message );
     $('#popup').removeClass('hidden');
+  }
+
+
+  ,updateStats : function () {
+    $("#score").text(Game.Canvas.score);
+    $("#remaining").text(Game.Canvas.remaining);
+    $("#collected").text(Game.Canvas.collected);
   }
 
 
@@ -2297,7 +2315,8 @@ Game.Timer = {
         Game.Controls.showPopup( message );
 
         clearInterval(refreshId);
-        timerBreak = true;
+        // timerBreak = true;
+        Game.Timer.timerBreak = false;
         return;
       }
       if (min > 9) {

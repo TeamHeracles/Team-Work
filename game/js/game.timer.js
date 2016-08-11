@@ -98,7 +98,8 @@ Game.Timer = {
         Game.Controls.showPopup( message );
 
         clearInterval(refreshId);
-        timerBreak = true;
+        // timerBreak = true;
+        Game.Timer.timerBreak = false;
         return;
       }
       if (min > 9) {
