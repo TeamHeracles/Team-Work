@@ -5,7 +5,6 @@ Game.Timer = {
     var ctx = timer.getContext('2d');
     var cWidth = timer.width;
     var cHeight = timer.height;
-    var breakTimerFromOutside = false;
     var countTo = 100; // 300
 
     var min = Math.floor(countTo / 60);
@@ -90,7 +89,8 @@ Game.Timer = {
       //====== Values
       ctx.fillStyle = '#65ae52';
       if (Game.Timer.timerBreak) {
-        clearInterval(refreshId);
+          clearInterval(refreshId);
+          Game.Timer.timerBreak = false;
         return;
       }
       if (min === 0 && sec === 0) {
@@ -99,7 +99,7 @@ Game.Timer = {
 
         clearInterval(refreshId);
         // timerBreak = true;
-        Game.Timer.timerBreak = false;
+        //Game.Timer.timerBreak = false;
         return;
       }
       if (min > 9) {

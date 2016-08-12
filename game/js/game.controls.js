@@ -11,10 +11,17 @@ Game.Controls = {
 
             Game.game_wrap.removeClass('active');
             Game.game_wrap.html('');
-
+           // if(btn[0].id == 'back-button'){
+                //stops when button back is clicked
+           //     Game.Timer.timerBreak = true;
+            //}
             setTimeout(function () {
                 Game.Screen.load(game_screen);
             }, 500);
+        });
+
+        Game.game_wrap.on('click', '#back-button', function () {
+            Game.Timer.timerBreak = true;
         });
 
         Game.game_wrap.on('click', '.btn-level', function () {
@@ -32,7 +39,7 @@ Game.Controls = {
             Game.mouse.id = mouse_id;
         });
 
-
+      
         $('#home-button, #load-button').on('click', function () {
             var btn = $(this),
                 game_screen = $(btn).attr('data-nav');
