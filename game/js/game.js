@@ -34,7 +34,7 @@ var Game = {
   },
   level : 'easy',
   targets : [],
-
+  currentLevelPlayed :[],  
   init : function () {
     Game.game_wrap.load('intro.html');
     // Game.game_wrap.load('game.html', function(){

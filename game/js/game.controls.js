@@ -67,7 +67,7 @@ Game.Controls = {
           y = Game.mouse.coords[1],
           dx = Game.Canvas.step,
           dy = Game.Canvas.step,
-          map = Game.Map[Game.level],
+          map = Game.currentLevelPlayed,
           keyCodeToDirs = {
               "37": 2,
               "38": 3,
@@ -161,7 +161,7 @@ Game.Controls = {
               map[mouseNextY / Game.Canvas.step][mouseNextX / Game.Canvas.step] = 0;
               map[(mouseNextY + dirDeltas[dir].y) / Game.Canvas.step][(mouseNextX + dirDeltas[dir].x) / Game.Canvas.step] = 1;
               ctx_cheese.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
-              Game.Canvas.setCheese(Game.level, ctx_cheese, Game.Canvas.step);
+              Game.Canvas.setCheese(ctx_cheese, Game.Canvas.step);
               //checks if it is on point and add points to score
           }
 

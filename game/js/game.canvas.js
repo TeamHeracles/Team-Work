@@ -13,31 +13,26 @@ Game.Canvas = {
 
 
   init : function () {
-    Game.Canvas.remaining = 0;
-    Game.Canvas.collected = 0;
-    Game.Canvas.stuck = 0;
-    Game.Canvas.score = 0;
-    Game.Canvas.moves = 0;
-
     // Page content should be loaded before canvas elements can be selected in DOM
     Game.Canvas.targets = [];
     Game.Canvas.forest = document.getElementById('forest');
     Game.Canvas.cheese = document.getElementById('cheese');
     Game.Canvas.timer = document.getElementById('timer');
     Game.Canvas.mouse = document.getElementById('mouse');
-
     var ctx_forest = Game.Canvas.forest.getContext('2d'),
         ctx_cheese = Game.Canvas.cheese.getContext('2d'),
         ctx_mouse = Game.Canvas.mouse.getContext('2d');
-
+    Game.currentLevelPlayed = JSON.parse(JSON.stringify(Game.Map[Game.level]));
+    Game.mouse.coords = [440, 320];
     Game.Draw.Mouse(ctx_mouse, Game.mouse.coords, "down");
 
-    Game.Canvas.setForest( Game.level, ctx_forest, Game.Canvas.step );
-
-    Game.Canvas.setCheese( Game.level, ctx_cheese, Game.Canvas.step );
-
+    Game.Canvas.setForest( ctx_forest, Game.Canvas.step );
+    Game.Canvas.setCheese( ctx_cheese, Game.Canvas.step );    
     Game.Timer.init( Game.Canvas.timer );
-
+    Game.Canvas.collected = 0;
+    Game.Canvas.stuck = 0;
+    Game.Canvas.score = 0;
+    Game.Canvas.moves = 0;
     Game.Canvas.remaining = Game.Canvas.targets.length;
 
     $('#remaining').text(Game.Canvas.remaining);
@@ -48,8 +43,8 @@ Game.Canvas = {
   }
 
 
-  ,setForest : function ( level, ctx, step ) {
-    var map = Game.Map[level];
+  ,setForest : function ( ctx, step ) {
+    var map = Game.currentLevelPlayed;
     for (var row = 0; row < map.length; row++) {
       for (var col = 0; col < map[row].length; col++) {
         var cell = map[row][col];
@@ -86,9 +81,8 @@ Game.Canvas = {
   }
 
 
-  ,setCheese : function ( level, ctx,  step ) {
-    var map = Game.Map[level];
-
+  ,setCheese : function ( ctx,  step ) {
+    var map = Game.currentLevelPlayed;
     for (var row = 0; row < map.length; row++) {
       for (var col = 0; col < map[row].length; col++) {
         var cell = map[row][col];
