@@ -113,19 +113,23 @@ Game.Controls = {
       var mouseNextX = x + dirDeltas[dir].x;
       var mouseNextY = y + dirDeltas[dir].y;
 
-      if (mouseNextY < 0 || mouseNextY >= height || mouseNextX < 0 || mouseNextX >= width ||
-          (mouseNextY + dirDeltas[dir].y) / Game.Canvas.step >= map.length ||
-          (mouseNextX + dirDeltas[dir].x )/ Game.Canvas.step >= map[0].length ||
-          (mouseNextY + dirDeltas[dir].y) < 0 ||
-          (mouseNextX + dirDeltas[dir].x) < 0)
+      if (mouseNextY < 0 || mouseNextY >= height || mouseNextX < 0 || mouseNextX >= width)
           return;
 
       var mapNextPosition = map[mouseNextY / Game.Canvas.step][mouseNextX / Game.Canvas.step];
 
-      if ((notAllowedPositions.indexOf(mapNextPosition) == -1 ||
-          (mapNextPosition == 1 &&
-          (map[(mouseNextY + dirDeltas[dir].y) / Game.Canvas.step][(mouseNextX + dirDeltas[dir].x) / Game.Canvas.step]) == 0 ||
-          map[(mouseNextY + dirDeltas[dir].y) / Game.Canvas.step][(mouseNextX + dirDeltas[dir].x) / Game.Canvas.step] == 'p'))) {
+      if (notAllowedPositions.indexOf(mapNextPosition) == -1 ||
+          (mapNextPosition == 1 && (
+            (mouseNextY + dirDeltas[dir].y) / Game.Canvas.step < map.length &&
+            (mouseNextX + dirDeltas[dir].x) / Game.Canvas.step < map[0].length &&
+            (mouseNextY + dirDeltas[dir].y) >= 0 &&
+            (mouseNextX + dirDeltas[dir].x) >= 0)
+
+          &&
+
+          ( map[(mouseNextY + dirDeltas[dir].y) / Game.Canvas.step][(mouseNextX + dirDeltas[dir].x) / Game.Canvas.step] == 0 ||
+            map[(mouseNextY + dirDeltas[dir].y) / Game.Canvas.step][(mouseNextX + dirDeltas[dir].x) / Game.Canvas.step] == 'p')))
+      {
 
           //updates the position of the mouse
           ctx_mouse.clearRect(Game.mouse.coords[0], Game.mouse.coords[1], dx, dy);
