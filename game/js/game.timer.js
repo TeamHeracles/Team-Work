@@ -93,7 +93,7 @@ Game.Timer = {
         clearInterval(refreshId);
         return;
       }
-      if (min == 0 && sec == 0) {
+      if (min === 0 && sec === 0) {
         var message = "Your time is up! Your score is " + Game.Canvas.score;
         Game.Controls.showPopup( message );
 
