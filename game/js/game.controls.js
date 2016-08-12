@@ -113,7 +113,12 @@ Game.Controls = {
       var mouseNextX = x + dirDeltas[dir].x;
       var mouseNextY = y + dirDeltas[dir].y;
 
-      if (mouseNextY < 0 || mouseNextY >= height || mouseNextX < 0 || mouseNextX >= width) return;
+      if (mouseNextY < 0 || mouseNextY >= height || mouseNextX < 0 || mouseNextX >= width ||
+          (mouseNextY + dirDeltas[dir].y) / Game.Canvas.step >= map.length ||
+          (mouseNextX + dirDeltas[dir].x )/ Game.Canvas.step >= map[0].length ||
+          (mouseNextY + dirDeltas[dir].y) < 0 ||
+          (mouseNextX + dirDeltas[dir].x) < 0)
+          return;
 
       var mapNextPosition = map[mouseNextY / Game.Canvas.step][mouseNextX / Game.Canvas.step];
 
