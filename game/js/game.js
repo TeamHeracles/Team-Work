@@ -30,7 +30,11 @@ var Game = {
   mouse : {
     id : 'green-mouse',
     coords : [440, 320],
-    moves: 0
+    moves: 0,
+    init: function () {
+        this.coords = [440, 320],
+        this.moves = 0
+    }
   },
   level : 'easy',
   targets : [],

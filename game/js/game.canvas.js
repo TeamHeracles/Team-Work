@@ -23,7 +23,7 @@ Game.Canvas = {
         ctx_cheese = Game.Canvas.cheese.getContext('2d'),
         ctx_mouse = Game.Canvas.mouse.getContext('2d');
     Game.currentLevelPlayed = JSON.parse(JSON.stringify(Game.Map[Game.level]));
-    Game.mouse.coords = [440, 320];
+    Game.mouse.init();
     Game.Draw.Mouse(ctx_mouse, Game.mouse.coords, "down");
 
     Game.Canvas.setForest( ctx_forest, Game.Canvas.step );
